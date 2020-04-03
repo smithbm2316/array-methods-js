@@ -1,0 +1,17 @@
+{
+	"name": "array-methods-js",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "parcel src/index.pug",
+		"prod": "parcel build src"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"parcel-bundler": "^1.12.4",
+		"pug": "^2.0.4"
+	}
+}
