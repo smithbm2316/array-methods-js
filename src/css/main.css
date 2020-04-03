@@ -1,0 +1,40 @@
+@import "./overrides.css";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Rubik:wght@400;500;700&display=swap");
+
+html {
+	background-color: var(--gray-100);
+	color: var(--gray-900);
+	font-family: "Rubik", --apple-system, Arial, Helvetica, sans-serif;
+}
+
+main {
+	margin: 2rem auto;
+	width: 80%;
+}
+
+.headline {
+	margin-bottom: 2rem;
+}
+
+.headline h1 {
+	color: var(--blue-700);
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+
+.snippet {
+	background-color: #01162c;
+	border-radius: 0.5rem;
+	color: white;
+	padding: 0.5rem;
+	font-family: "Fira Code", monospace;
+}
+
+pre {
+	background-color: #01162c;
+	border-radius: 0.5rem;
+	line-height: 1.5rem;
+	padding: 1rem;
+	font-family: "Fira Code", monospace;
+}

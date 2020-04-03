@@ -1,16 +1,15 @@
 doctype html
-html.bg-gray-200
+html
 
 	head
 		title Map - Array Methods
-		link(rel='stylesheet' href='https://unpkg.com/tailwindcss@^1.2.0/dist/tailwind.min.css')
-
+		link(rel='stylesheet' href="./css/main.css")
+		link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css")
 	body
-		main(class="w-5/6 mx-auto my-8 text-gray-900")
-			.headline.mb-8
-				h1.text-4xl.text-blue-700.font-bold.mb-2 Map
-				p Use map() when you want to take an array of pre-existing data and manipulate that data, without affecting the original array.
-			.codeblock.mb-8.shadow-inner.bg-gray-400.p-4.rounded-lg
+		main
+			.headline
+				h1 Map
+				p Use #[span.snippet map()] when you want to take an array of pre-existing data and manipulate that data, without affecting the original array.
 				- 
 					const names = [
 						"Ben Smith",
@@ -20,9 +19,12 @@ html.bg-gray-200
 						"Katelyn Roberts",
 					];
 					const firstNames = names.map(name => name.split(" ")[0]);
-				
-				span const names = [
-				each name in names
-					span.block.ml-4 "#{name}", 
-				span ];
-
+			
+			.ex-one
+				pre
+					code.javascript
+						p const names = [#{names.join(', ')}];
+						p const firstNames = names.map(name => name.split(" ")[0]);
+	
+	script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js")
+	script(src="./js/highlight-styles.js")
