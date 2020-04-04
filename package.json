@@ -4,15 +4,14 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "parcel src/index.pug",
+		"dev": "parcel src/index.html",
 		"prod": "parcel build src"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
-		"parcel-bundler": "^1.12.4",
-		"pug": "^2.0.4"
+		"parcel-bundler": "^1.12.4"
 	},
 	"dependencies": {
 		"highlight.js": "^9.18.1"

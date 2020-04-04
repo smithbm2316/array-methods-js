@@ -1,11 +1,17 @@
+/* Import Tailwind CSS Colors and global resets */
 @import "./overrides.css";
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Quicksand:wght@400;500;600&display=swap");
+
+/* Import Quicksand Font */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400...600&family=Quicksand:wght@200...600");
 
 html {
 	background-color: var(--gray-100);
 	color: var(--gray-900);
 	font-family: "Quicksand", --apple-system, Arial, Helvetica, sans-serif;
 	font-weight: 400;
+
+	/* COLORS */
+	--hljs-dark: #282a37;
 }
 
 main {
@@ -31,10 +37,6 @@ main {
 	font-family: "Fira Code", monospace;
 }
 
-pre {
-	background-color: #01162c;
-	border-radius: 0.5rem;
-	line-height: 1.5rem;
-	padding: 1rem;
+.example {
 	font-family: "Fira Code", monospace;
 }
