@@ -14,12 +14,7 @@ const exampleTwo = document.querySelector(".example-two");
 const text = `\
 const names = ["Ben Smith", "John Michaelson", "Wes Tomkins", "Julie Donaldson", "Katelyn Roberts"];
 const firstNames = names.map(name => name.split(" ")[0]);
-function func() {
-  
-}
 `;
-
-function func() {}
 
 exampleOne.textContent = text;
 exampleTwo.textContent = text;
