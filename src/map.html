@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Array Methods</title>
 		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="./css/prism-synthwave84.css" />
 	</head>
 	<body>
 		<header>
@@ -23,16 +24,20 @@
 				</p>
 			</div>
 
-			<pre class="example">
-        <code class="js example-one"></code>
-      </pre>
-
-			<pre class="example">
-        <code class="js example-two"></code>
-      </pre>
+			<div class="example">
+				<pre>
+          <code class="language-js example-one">
+            const names = ["Ben Smith", "John Michaelson", "Wes Tomkins", "Julie Donaldson", "Katelyn Roberts"];
+            const firstNames = names.map(name => name.split(" ")[0]);
+            function func() {
+              
+            }
+          </code>
+        </pre>
+			</div>
 		</main>
 
-		<script src="./js/highlight.js"></script>
 		<script src="./js/map.js"></script>
+		<script src="./js/prism.js"></script>
 	</body>
 </html>

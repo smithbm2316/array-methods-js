@@ -21,5 +21,5 @@ function func() {
 
 function func() {}
 
-exampleOne.textContent = text;
+// exampleOne.textContent = text;
 exampleTwo.textContent = text;

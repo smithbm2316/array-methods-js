@@ -37,6 +37,11 @@ main {
 	font-family: "Fira Code", monospace;
 }
 
-.example {
+.example pre {
+	border-radius: 0.5rem;
 	font-family: "Fira Code", monospace;
+}
+
+.example pre code {
+	white-space: normal;
 }
