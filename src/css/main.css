@@ -1,3 +1,11 @@
+/*
+
+
+  ----- Imports -----
+
+
+*/
+
 /* Import nord module */
 @import "./nord.css";
 
@@ -6,6 +14,24 @@
 	font-family: "Streamster";
 	src: url("../assets/streamster.ttf");
 }
+
+@font-face {
+	font-family: "Eurostile";
+	src: url("../assets/eurostile.TTF");
+}
+
+@font-face {
+	font-family: "Gilles Gothic";
+	src: url("../assets/gilles-gothic.ttf");
+}
+
+/*
+
+
+  ----- Light and Dark Themes -----
+
+
+*/
 
 /* Light theme */
 [data-theme="light"] {
@@ -20,12 +46,12 @@
 
 /* Dark theme */
 [data-theme="dark"] {
-	--bg: var(--nord0);
-	--text: var(--nord6);
-	--logo-brackets: var(--nord9);
-	--nav-text: var(--nord5);
-	--header-text: var(--nord15);
-	--inline-snippet: var(--nord13);
+	--bg: #302a48;
+	--text: #f0eff1;
+	--logo-brackets: #4e3d69;
+	--nav-text: #848dc4;
+	--header-text: #c792ea;
+	--inline-snippet: #fede5d;
 	--snippet-bg: var(--nord1);
 }
 
@@ -34,15 +60,32 @@
 	transition: background 0.25s ease-in-out;
 }
 
+/*
+
+
+  ----- Root Styles -----
+
+
+*/
+
 html {
-	background-color: var(--bg);
+	background: var(--bg);
 	color: var(--text);
-	font-family: "Quicksand", --apple-system, Helvetica, Arial, sans-serif;
+	font-family: "Eurostile", --apple-system, Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
+	letter-spacing: 0.05rem;
 	margin: 0 auto;
 	width: 80%;
 }
+
+/*
+
+
+  ----- Logo Banner -----
+
+
+*/
 
 .logo {
 	align-items: center;
@@ -55,12 +98,7 @@ html {
 
 .logo h1 {
 	/* Gradient on text */
-	background: linear-gradient(
-		to top,
-		var(--nord11) 30%,
-		var(--nord12),
-		var(--nord13)
-	);
+	background: linear-gradient(to top, #f92aad 30%, #f772e0, #e1acff);
 	background-clip: text;
 	color: transparent;
 	-webkit-background-clip: text;
@@ -77,6 +115,14 @@ html {
 	z-index: 0;
 }
 
+/*
+
+
+  ----- Navbar -----
+
+
+*/
+
 nav {
 	display: flex;
 	justify-content: space-between;
@@ -85,7 +131,12 @@ nav {
 }
 
 /* boosts z-index to be on top of [] symbol of logo */
-nav a {
+nav a,
+.toggle-theme {
+	font-family: "Gilles Gothic", --apple-system, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: 2rem;
+	text-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
 	z-index: 1;
 }
 
@@ -93,8 +144,6 @@ nav a,
 nav a:visited,
 .toggle-theme {
 	color: var(--nav-text);
-	font-weight: 500;
-	font-size: 1.25rem;
 }
 
 nav a:hover,
@@ -113,6 +162,14 @@ nav a:focus,
 	white-space: nowrap;
 }
 
+/*
+
+
+  ----- Main Content -----
+
+
+*/
+
 .headline {
 	margin: 2rem 0;
 }
@@ -120,9 +177,19 @@ nav a:focus,
 .headline h1,
 .headline h2 {
 	color: var(--header-text);
-	font-size: 2rem;
-	font-weight: 600;
+	font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
+	font-size: 3rem;
+	font-weight: normal;
+	text-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
 }
+
+/*
+
+
+  ----- Code Snippet Styles -----
+
+
+*/
 
 .inline-snippet {
 	color: var(--inline-snippet);
@@ -179,6 +246,14 @@ nav a:focus,
 .snippet-copy svg {
 	transform-origin: 50% 50%;
 }
+
+/*
+
+
+  ----- Media Queries -----
+
+
+*/
 
 @media (max-width: 580px) {
 	.logo h1 {
