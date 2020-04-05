@@ -1,22 +1,52 @@
-/* Import Tailwind CSS Colors and global resets */
-@import "./overrides.css";
+/* Import nord module */
+@import "./nord.css";
 
-/* Import Quicksand Font */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400...600&family=Quicksand:wght@200...600");
-
-html {
-	background-color: var(--gray-100);
-	color: var(--gray-900);
-	font-family: "Quicksand", --apple-system, Arial, Helvetica, sans-serif;
-	font-weight: 400;
-
-	/* COLORS */
-	--hljs-dark: #282a37;
+/* Light theme */
+[data-theme="light"] {
+	--bg: var(--nord6);
+	--text: var(--nord0);
+	--nav-text: var(--nord3);
+	--header-text: var(--nord15);
+	--inline-snippet: var(--nord9);
+	--snippet-bg: var(--nord0);
 }
 
-main {
-	margin: 2rem auto;
+/* Dark theme */
+[data-theme="dark"] {
+	--bg: var(--nord0);
+	--text: var(--nord6);
+	--nav-text: var(--nord5);
+	--header-text: var(--nord15);
+	--inline-snippet: var(--nord13);
+	--snippet-bg: var(--nord1);
+}
+
+/* Class to add during transition of themes */
+.theme-transition {
+	transition: background 0.25s ease-in-out;
+}
+
+html {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: "Quicksand", --apple-system, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 0 auto;
 	width: 80%;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem auto;
+}
+
+nav a,
+nav a:visited {
+	color: var(--nav-text);
+	font-weight: 500;
+	text-decoration: none;
 }
 
 .headline {
@@ -24,18 +54,19 @@ main {
 }
 
 .headline h1 {
-	color: var(--indigo-500);
+	color: var(--header-text);
 	font-size: 2rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
 }
 
 .inline-snippet {
-	color: var(--yellow-700);
+	color: var(--inline-snippet);
+	font-weight: 500;
 }
 
 .snippet {
-	background: #2e3440;
+	background: var(--snippet-bg);
 	border-radius: 0.5rem;
 	padding: 1rem 1rem 1rem 1.5rem;
 }
@@ -45,29 +76,35 @@ main {
 	flex-direction: row-reverse;
 }
 
-.snippet-btn {
+.snippet-copy {
 	/* resets for styling */
 	background: inherit;
 	border: 0;
 	border-radius: 0.5rem;
-	color: var(--gray-400);
-	font-size: 1rem;
-	white-space: nowrap;
+	color: var(--nord8);
 	cursor: pointer;
+	white-space: nowrap;
 
 	/* sizing and positioning */
-	width: 22px;
-	height: 22px;
+	width: 25px;
+	height: 25px;
 	margin-left: 0.5rem;
+	padding: 0;
 }
 
-.snippet-btn:hover {
-	color: var(--yellow-500);
+.snippet-copy:hover {
+	color: var(--nord15);
 }
 
-.snippet-btn:focus,
-.snippet-btn:active {
-	color: var(--blue-500);
+.snippet-copy:focus,
+.snippet-copy:active {
+	color: var(--nord8);
+}
+
+.snippet pre,
+.snippet-one {
+	background: var(--snippet-bg) !important;
+	margin: 0;
 }
 
 .snippet-one,
