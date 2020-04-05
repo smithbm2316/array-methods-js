@@ -1,9 +1,6 @@
 /* Import nord module */
 @import "./nord.css";
 
-/* Import Quicksand Font */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400...600&family=Quicksand:wght@200...600");
-
 /* Light theme */
 [data-theme="light"] {
 	--bg: var(--nord6);
@@ -32,7 +29,7 @@
 html {
 	background-color: var(--bg);
 	color: var(--text);
-	font-family: "Quicksand", --apple-system, Arial, Helvetica, sans-serif;
+	font-family: "Quicksand", --apple-system, Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	margin: 0 auto;

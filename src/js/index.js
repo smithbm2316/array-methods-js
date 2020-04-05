@@ -3,6 +3,7 @@ import Prism from "prismjs";
 import NormalizeWhitespace from "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
 /* ClipboardJS script */
+// TODO add an indicator that text has been copied, remove highlighting of text for mobile
 // Grab all the copy buttons on the various snippets
 const examples = document.querySelectorAll(".snippet-copy");
 const clipboard = new ClipboardJS(examples);
