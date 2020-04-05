@@ -30,13 +30,47 @@ main {
 	margin-bottom: 1rem;
 }
 
-.snippet {
-	border-radius: 0.5rem;
-	color: var(--pink-500);
-	font-weight: 500;
-	font-family: "Fira Code", monospace;
+.inline-snippet {
+	color: var(--yellow-700);
 }
 
-.example {
-	font-family: "Fira Code", monospace;
+.snippet {
+	background: #2e3440;
+	border-radius: 0.5rem;
+	padding: 1rem 1rem 1rem 1.5rem;
+}
+
+.snippet-bar {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.snippet-btn {
+	/* resets for styling */
+	background: inherit;
+	border: 0;
+	border-radius: 0.5rem;
+	color: var(--gray-400);
+	font-size: 1rem;
+	white-space: nowrap;
+	cursor: pointer;
+
+	/* sizing and positioning */
+	width: 22px;
+	height: 22px;
+	margin-left: 0.5rem;
+}
+
+.snippet-btn:hover {
+	color: var(--yellow-500);
+}
+
+.snippet-btn:focus,
+.snippet-btn:active {
+	color: var(--blue-500);
+}
+
+.snippet-one,
+.snippet-one * {
+	font-size: 0.85rem;
 }
