@@ -49,6 +49,24 @@ nav a:visited {
 	text-decoration: none;
 }
 
+nav a:hover,
+nav a:focus,
+.toggle-theme:hover,
+.toggle-theme:focus {
+	text-decoration: underline;
+}
+
+.toggle-theme {
+	/* resets for styling */
+	background: inherit;
+	border: 0;
+	border-radius: 0.5rem;
+	color: var(--nav-text);
+	cursor: pointer;
+	font-weight: 500;
+	white-space: nowrap;
+}
+
 .headline {
 	margin-bottom: 2rem;
 }
