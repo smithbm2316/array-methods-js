@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "parcel src/index.html",
-		"prod": "parcel build src"
+		"build": "parcel build src"
 	},
 	"keywords": [],
 	"author": "",
@@ -14,6 +14,7 @@
 		"parcel-bundler": "^1.12.4"
 	},
 	"dependencies": {
+		"clipboard": "^2.0.6",
 		"prismjs": "^1.20.0"
 	}
 }

@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Array Methods</title>
 		<link rel="stylesheet" href="./css/main.css" />
-		<link rel="stylesheet" href="./css/prism-synthwave84.css" />
+		<link rel="stylesheet" href="./css/prism-nord.css" />
 	</head>
 	<body>
 		<header>
@@ -18,26 +18,54 @@
 			<div class="headline">
 				<h1>Map</h1>
 				<p>
-					Use <span class="snippet">map()</span> when you want to take an array
-					of pre-existing data and manipulate that data, without affecting the
-					original array.
+					Use <span class="inline-snippet">map()</span> when you want to take an
+					array of pre-existing data and manipulate that data, without affecting
+					the original array.
 				</p>
 			</div>
 
-			<div class="example">
+			<div class="snippet">
+				<div class="snippet-bar">
+					<button class="snippet-btn" data-clipboard-target=".snippet-one">
+						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+							/>
+						</svg>
+					</button>
+					<button class="snippet-btn">
+						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+							/>
+							stroke-width="2"
+						</svg>
+					</button>
+				</div>
 				<pre>
-          <code class="language-js example-one">
-            const names = ["Ben Smith", "John Michaelson", "Wes Tomkins", "Julie Donaldson", "Katelyn Roberts"];
+          <code class="language-js snippet-one">
+            const names = [
+              "Ben Smith", 
+              "John Michaelson", 
+              "Wes Tomkins", 
+              "Julie Donaldson", 
+              "Katelyn Roberts"
+            ];
             const firstNames = names.map(name => name.split(" ")[0]);
-            function func() {
-              
-            }
+            // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
           </code>
         </pre>
 			</div>
 		</main>
 
 		<script src="./js/map.js"></script>
-		<script src="./js/prism.js"></script>
+		<script src="./libs/prism.js"></script>
+		<script src="./libs/clipboard.js"></script>
 	</body>
 </html>
