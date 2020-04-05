@@ -8,14 +8,18 @@
 			href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400...600&family=Quicksand:wght@400...600&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="stylesheet" href="./css/preflight.css" />
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/prism-nord.css" />
 	</head>
 	<body>
 		<header>
+			<div class="logo">
+				<h1>Array Methods</h1>
+				<p>[]</p>
+			</div>
 			<nav>
-				<a href="./index.html">Home</a>
+				<a href="/">Home</a>
 				<a href="./map.html">Map</a>
 				<button class="toggle-theme">Toggle me!</button>
 			</nav>
@@ -23,7 +27,7 @@
 
 		<main>
 			<div class="headline">
-				<h1>Map</h1>
+				<h2>Map</h2>
 				<p>
 					Use <span class="inline-snippet">map()</span> when you want to take an
 					array of pre-existing data and manipulate that data, without affecting
@@ -34,7 +38,12 @@
 			<div class="snippet">
 				<div class="snippet-bar">
 					<button class="snippet-copy" data-clipboard-target=".snippet-one">
-						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<svg
+							id="copy-svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
 							<path
 								stroke-linecap="round"
 								stroke-linejoin="round"

@@ -1,10 +1,17 @@
 /* Import nord module */
 @import "./nord.css";
 
+/* Import Streamster font */
+@font-face {
+	font-family: "Streamster";
+	src: url("../assets/streamster.ttf");
+}
+
 /* Light theme */
 [data-theme="light"] {
 	--bg: var(--nord6);
 	--text: var(--nord0);
+	--logo-brackets: var(--nord9);
 	--nav-text: var(--nord3);
 	--header-text: var(--nord15);
 	--inline-snippet: var(--nord9);
@@ -15,6 +22,7 @@
 [data-theme="dark"] {
 	--bg: var(--nord0);
 	--text: var(--nord6);
+	--logo-brackets: var(--nord9);
 	--nav-text: var(--nord5);
 	--header-text: var(--nord15);
 	--inline-snippet: var(--nord13);
@@ -36,17 +44,57 @@ html {
 	width: 80%;
 }
 
+.logo {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-family: "Streamster";
+	margin-top: 2rem;
+	position: relative;
+}
+
+.logo h1 {
+	/* Gradient on text */
+	background: linear-gradient(
+		to top,
+		var(--nord11) 30%,
+		var(--nord12),
+		var(--nord13)
+	);
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+
+	font-size: 5rem;
+	padding: 1.5rem;
+	z-index: 1;
+}
+
+.logo p {
+	color: var(--logo-brackets);
+	font-size: 8rem;
+	position: absolute;
+	z-index: 0;
+}
+
 nav {
 	display: flex;
 	justify-content: space-between;
-	margin: 2rem auto;
+	margin: 0 auto;
+	width: 60%;
+}
+
+/* boosts z-index to be on top of [] symbol of logo */
+nav a {
+	z-index: 1;
 }
 
 nav a,
-nav a:visited {
+nav a:visited,
+.toggle-theme {
 	color: var(--nav-text);
 	font-weight: 500;
-	text-decoration: none;
+	font-size: 1.25rem;
 }
 
 nav a:hover,
@@ -61,21 +109,19 @@ nav a:focus,
 	background: inherit;
 	border: 0;
 	border-radius: 0.5rem;
-	color: var(--nav-text);
 	cursor: pointer;
-	font-weight: 500;
 	white-space: nowrap;
 }
 
 .headline {
-	margin-bottom: 2rem;
+	margin: 2rem 0;
 }
 
-.headline h1 {
+.headline h1,
+.headline h2 {
 	color: var(--header-text);
 	font-size: 2rem;
 	font-weight: 600;
-	margin-bottom: 1rem;
 }
 
 .inline-snippet {
@@ -122,10 +168,28 @@ nav a:focus,
 .snippet pre,
 .snippet-one {
 	background: var(--snippet-bg) !important;
-	margin: 0;
 }
 
 .snippet-one,
 .snippet-one * {
 	font-size: 0.85rem;
+}
+
+/* Copy button transition animation */
+.snippet-copy svg {
+	transform-origin: 50% 50%;
+}
+
+@media (max-width: 580px) {
+	.logo h1 {
+		font-size: 3rem;
+	}
+
+	.logo p {
+		font-size: 6rem;
+	}
+
+	nav {
+		width: 80%;
+	}
 }

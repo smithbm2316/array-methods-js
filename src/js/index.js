@@ -39,3 +39,6 @@ toggleThemeBtn.addEventListener("click", () => {
 	// Remove the transition class, so it doesn't show it on page reload
 	document.documentElement.classList.remove(".theme-transition");
 });
+
+/* SVG animation for copy button */
+const copySVGs = document.querySelectorAll("#copy-svg");
