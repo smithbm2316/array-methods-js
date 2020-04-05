@@ -6,9 +6,6 @@
 
 */
 
-/* Import nord module */
-@import "./nord.css";
-
 /* Import Streamster font */
 @font-face {
 	font-family: "Streamster";
@@ -35,24 +32,68 @@
 
 /* Light theme */
 [data-theme="light"] {
-	--bg: var(--nord6);
-	--text: var(--nord0);
-	--logo-brackets: var(--nord9);
-	--nav-text: var(--nord3);
-	--header-text: var(--nord15);
-	--inline-snippet: var(--nord9);
-	--snippet-bg: var(--nord0);
+	/* Base background and text color */
+	--bg: #e0e0e0;
+	--text: #231b30;
+
+	/* Logo */
+	--logo-brackets: #e1acff;
+	--logo-gradient: linear-gradient(
+		0deg,
+		#f92aad 40%,
+		#e1acff,
+		#8093d4,
+		#92ecf9 85%
+	);
+	--logo-shadow: 2px 3px 7px rgba(128, 147, 212, 0.7);
+
+	/* Navbar */
+	--nav-text: #4e3d69;
+	--nav-shadow: 1px 2px 5px rgba(35, 27, 48, 0.2);
+
+	/* Headings */
+	--heading-text: #4e3d69;
+	--heading-shadow: 1px 2px 5px rgba(35, 27, 48, 0.2);
+
+	/* Code Snippets */
+	--inline-snippet: #6d77b3;
+	--snippet-bg: #2a2139;
+	--copy-btn: #e1acff;
+	--copy-hover: #f772e0;
+	--copy-focus-active: #fede5d;
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-	--bg: #302a48;
-	--text: #f0eff1;
+	/* Base background and text color */
+	--bg: #2a2139;
+	--text: #eee5f5;
+
+	/* Logo */
 	--logo-brackets: #4e3d69;
+	--logo-gradient: linear-gradient(
+		0deg,
+		#f92aad 40%,
+		#e1acff,
+		#8093d4,
+		#92ecf9 85%
+	);
+	--logo-shadow: 2px 3px 7px rgba(247, 114, 224, 0.3);
+
+	/* Navbar */
 	--nav-text: #848dc4;
-	--header-text: #c792ea;
+	--nav-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
+
+	/* Headings */
+	--heading-text: #c792ea;
+	--heading-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
+
+	/* Code Snippets */
 	--inline-snippet: #fede5d;
-	--snippet-bg: var(--nord1);
+	--snippet-bg: #312942;
+	--copy-btn: #e1acff;
+	--copy-hover: #f772e0;
+	--copy-focus-active: #fede5d;
 }
 
 /* Class to add during transition of themes */
@@ -72,7 +113,7 @@ html {
 	background: var(--bg);
 	color: var(--text);
 	font-family: "Eurostile", --apple-system, Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 400;
 	letter-spacing: 0.05rem;
 	margin: 0 auto;
@@ -98,13 +139,14 @@ html {
 
 .logo h1 {
 	/* Gradient on text */
-	background: linear-gradient(to top, #f92aad 30%, #f772e0, #e1acff);
+	background: var(--logo-gradient);
 	background-clip: text;
 	color: transparent;
 	-webkit-background-clip: text;
 
-	font-size: 5rem;
+	font-size: 4.5rem;
 	padding: 1.5rem;
+	text-shadow: var(--logo-shadow);
 	z-index: 1;
 }
 
@@ -136,7 +178,7 @@ nav a,
 	font-family: "Gilles Gothic", --apple-system, Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 2rem;
-	text-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
+	text-shadow: var(--nav-shadow);
 	z-index: 1;
 }
 
@@ -176,11 +218,11 @@ nav a:focus,
 
 .headline h1,
 .headline h2 {
-	color: var(--header-text);
+	color: var(--heading-text);
 	font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
 	font-size: 3rem;
 	font-weight: normal;
-	text-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
+	text-shadow: var(--heading-shadow);
 }
 
 /*
@@ -212,7 +254,7 @@ nav a:focus,
 	background: inherit;
 	border: 0;
 	border-radius: 0.5rem;
-	color: var(--nord8);
+	color: var(--copy-btn);
 	cursor: pointer;
 	white-space: nowrap;
 
@@ -224,12 +266,12 @@ nav a:focus,
 }
 
 .snippet-copy:hover {
-	color: var(--nord15);
+	color: var(--copy-hover);
 }
 
 .snippet-copy:focus,
 .snippet-copy:active {
-	color: var(--nord8);
+	color: var(--copy-focus-active);
 }
 
 .snippet pre,
@@ -266,5 +308,10 @@ nav a:focus,
 
 	nav {
 		width: 80%;
+	}
+
+	nav a,
+	.toggle-theme {
+		font-size: 1.75rem;
 	}
 }
