@@ -5,8 +5,8 @@
 
 
 */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap");
 
-/* Import Streamster font */
 @font-face {
 	font-family: "Streamster";
 	src: url("../assets/streamster.ttf");
@@ -33,7 +33,7 @@
 /* Light theme */
 [data-theme="light"] {
 	/* Base background and text color */
-	--bg: #e0e0e0;
+	--bg: #f0eff1;
 	--text: #231b30;
 
 	/* Logo */
@@ -55,8 +55,15 @@
 	--heading-text: #4e3d69;
 	--heading-shadow: 1px 2px 5px rgba(35, 27, 48, 0.2);
 
+	/* Links */
+	--link: #6196cc;
+	--link-hover: #8590ce;
+	--link-active: #6d77b3;
+
 	/* Code Snippets */
-	--inline-snippet: #6d77b3;
+	--inline-snippet-text: #2a2139;
+	--inline-snippet-bg: #dddddd;
+	--inline-snippet-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	--snippet-bg: #2a2139;
 	--copy-btn: #e1acff;
 	--copy-hover: #f772e0;
@@ -67,7 +74,7 @@
 [data-theme="dark"] {
 	/* Base background and text color */
 	--bg: #2a2139;
-	--text: #eee5f5;
+	--text: #f0eff1;
 
 	/* Logo */
 	--logo-brackets: #4e3d69;
@@ -88,8 +95,15 @@
 	--heading-text: #c792ea;
 	--heading-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
 
+	/* Links */
+	--link: #f772e0;
+	--link-hover: #f92aad;
+	--link-active: #c9228b;
+
 	/* Code Snippets */
-	--inline-snippet: #fede5d;
+	--inline-snippet-text: #f0eff1;
+	--inline-snippet-bg: #312942;
+	--inline-snippet-shadow: none;
 	--snippet-bg: #312942;
 	--copy-btn: #e1acff;
 	--copy-hover: #f772e0;
@@ -117,7 +131,7 @@ html {
 	font-weight: 400;
 	letter-spacing: 0.05rem;
 	margin: 0 auto;
-	width: 80%;
+	width: 50%;
 }
 
 /*
@@ -155,6 +169,11 @@ html {
 	font-size: 8rem;
 	position: absolute;
 	z-index: 0;
+}
+
+.logo a {
+	cursor: pointer;
+	z-index: 1;
 }
 
 /*
@@ -212,17 +231,33 @@ nav a:focus,
 
 */
 
-.headline {
-	margin: 2rem 0;
-}
-
-.headline h1,
-.headline h2 {
+main h2 {
 	color: var(--heading-text);
 	font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
 	font-size: 3rem;
 	font-weight: normal;
+	margin: 2rem 0;
 	text-shadow: var(--heading-shadow);
+}
+
+main p,
+.snippet {
+	margin: 2rem 0;
+}
+
+.inline-link,
+.inline-link:visited {
+	color: var(--link);
+}
+
+.inline-link:hover,
+.inline-link:focus {
+	color: var(--link-hover);
+	text-decoration: underline;
+}
+
+.inline-link:active {
+	color: var(--link-active);
 }
 
 /*
@@ -234,8 +269,13 @@ nav a:focus,
 */
 
 .inline-snippet {
-	color: var(--inline-snippet);
-	font-weight: 500;
+	background: var(--inline-snippet-bg);
+	border-radius: 0.2rem;
+	box-shadow: var(--inline-snippet-shadow);
+	color: var(--inline-snippet-text);
+	font-family: "Fira Code", monospace;
+	font-size: 0.85rem;
+	padding: 0.15rem 0.4rem;
 }
 
 .snippet {
@@ -277,11 +317,7 @@ nav a:focus,
 .snippet pre,
 .snippet-one {
 	background: var(--snippet-bg) !important;
-}
-
-.snippet-one,
-.snippet-one * {
-	font-size: 0.85rem;
+	font-weight: 400;
 }
 
 /* Copy button transition animation */
@@ -297,7 +333,35 @@ nav a:focus,
 
 */
 
-@media (max-width: 580px) {
+@media (min-width: 1920px) {
+	html {
+		width: 960px;
+	}
+}
+
+@media (max-width: 1440px) {
+	html {
+		width: 60%;
+	}
+}
+
+@media (max-width: 960px) {
+	html {
+		width: 70%;
+	}
+}
+
+@media (max-width: 680px) {
+	html {
+		width: 80%;
+	}
+}
+
+@media (max-width: 600px) {
+	html {
+		width: 90%;
+	}
+
 	.logo h1 {
 		font-size: 3rem;
 	}
@@ -313,5 +377,36 @@ nav a:focus,
 	nav a,
 	.toggle-theme {
 		font-size: 1.75rem;
+	}
+
+	main h2 {
+		font-size: 2.5rem;
+	}
+}
+
+@media (max-width: 420px) {
+	html {
+		font-size: 16px;
+	}
+
+	.logo h1 {
+		font-size: 2.75rem;
+	}
+
+	.logo p {
+		font-size: 6rem;
+	}
+
+	nav {
+		width: 100%;
+	}
+
+	nav a,
+	.toggle-theme {
+		font-size: 2rem;
+	}
+
+	main h2 {
+		font-size: 2.25rem;
 	}
 }

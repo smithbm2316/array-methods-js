@@ -18,9 +18,17 @@ window.onload = (event) => {
 	const schemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
 	// Set scheme based upon whether user's preferences is dark or light
-	schemeQuery.matches
-		? document.documentElement.setAttribute("data-theme", "dark")
-		: document.documentElement.setAttribute("data-theme", "light");
+	const localTheme = localStorage.getItem("theme");
+
+	if (localTheme !== null) {
+		document.documentElement.setAttribute("data-theme", localTheme);
+	} else {
+		if (schemeQuery.matches) {
+			document.documentElement.setAttribute("data-theme", "dark");
+		} else {
+			document.documentElement.setAttribute("data-theme", "light");
+		}
+	}
 };
 
 // Select the theme toggle button
@@ -32,9 +40,13 @@ toggleThemeBtn.addEventListener("click", () => {
 	document.documentElement.classList.add("theme-transition");
 
 	// Toggle the theme
-	document.documentElement.getAttribute("data-theme") === "dark"
-		? document.documentElement.setAttribute("data-theme", "light")
-		: document.documentElement.setAttribute("data-theme", "dark");
+	if (document.documentElement.getAttribute("data-theme") === "dark") {
+		document.documentElement.setAttribute("data-theme", "light");
+		localStorage.setItem("theme", "light");
+	} else {
+		document.documentElement.setAttribute("data-theme", "dark");
+		localStorage.setItem("theme", "dark");
+	}
 
 	// Remove the transition class, so it doesn't show it on page reload
 	document.documentElement.classList.remove(".theme-transition");
