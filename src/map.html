@@ -3,61 +3,123 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Array Methods</title>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400...600&family=Quicksand:wght@400...600&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="icon" href="./assets/js.ico" type="image/x-icon" />
+		<title>Map - Array Methods</title>
+		<link rel="stylesheet" href="./css/preflight.css" />
 		<link rel="stylesheet" href="./css/main.css" />
-		<link rel="stylesheet" href="./css/prism-nord.css" />
+		<link rel="stylesheet" href="./css/prism-synthwave84.css" />
 	</head>
 	<body>
 		<header>
+			<div class="logo">
+				<a href="/">
+					<h1>Array Methods</h1>
+				</a>
+				<p>[]</p>
+			</div>
 			<nav>
-				<a href="./index.html">Home</a>
+				<a href="/">Home</a>
 				<a href="./map.html">Map</a>
 				<button class="toggle-theme">Toggle me!</button>
 			</nav>
 		</header>
 
 		<main>
-			<div class="headline">
-				<h1>Map</h1>
-				<p>
-					Use <span class="inline-snippet">map()</span> when you want to take an
-					array of pre-existing data and manipulate that data, without affecting
-					the original array.
-				</p>
-			</div>
+			<h2>What is map()?</h2>
+			<p>
+				As per the
+				<a
+					class="inline-link"
+					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+					>Mozilla Developer Network (MDN)</a
+				>
+				web documenation, "The <span class="inline-snippet">map()</span> method
+				creates a new array populated with the results of calling a provided
+				function on every element in the calling array." Unlike
+				<span class="inline-snippet">forEach()</span>,
+				<span class="inline-snippet">map()</span> returns an array with the same
+				length as the array it was called on.
+				<span class="inline-snippet">map()</span>
+				allows you to take an array of pre-existing data and manipulate that
+				data, without affecting the original array.
+			</p>
 
 			<div class="snippet">
-				<div class="snippet-bar">
-					<button class="snippet-copy" data-clipboard-target=".snippet-one">
-						<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-							/>
-						</svg>
-					</button>
-				</div>
+				<button
+					class="snippet-copy"
+					aria-label="Toggle Theme"
+					data-clipboard-target=".snippet-one"
+				>
+					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+						/>
+					</svg>
+				</button>
 				<pre>
-          <code class="language-js snippet-one">
-            const names = [
+            <code class="language-js snippet-one">
+              const names = [
               "Ben Smith", 
               "John Michaelson", 
               "Wes Tomkins", 
               "Julie Donaldson", 
               "Katelyn Roberts"
-            ];
-            const firstNames = names.map(name => name.split(" ")[0]);
-            // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
-          </code>
-        </pre>
+              ];
+              const firstNames = names.map(name => name.split(" ")[0]);
+              // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
+
+              function testFunc() {
+                return names[0];
+              }
+
+              class NewClass {
+                constructor() {
+                  const name = "hello";
+                }
+              
+                newFunc() {
+                  return null;
+                }
+              
+              }
+
+              const cl = new NewClass();
+              const boolVal = true;
+
+              const CONSTANT = 400;
+            </code>
+          </pre>
 			</div>
+
+			<p>
+				This has a plethora of uses in Javascript. In the snippet above, we are
+				given an array called <span class="inline-snippet">names</span> where we
+				have a list of 5 names, including each person's first and last name in
+				the string. If I wanted an array of those names, but only with the first
+				names included, I can use <span class="inline-snippet">map()</span> to
+				easily get that data without changing the original
+				<span class="inline-snippet">names</span> array.
+			</p>
+
+			<p>
+				We define a variable
+				<span class="inline-snippet">firstNames</span> that is set equal to the
+				value that <span class="inline-snippet">names.map()</span> returns. We
+				pass a parameter of <span class="inline-snippet">name</span> which will
+				be set equal to each of the strings in
+				<span class="inline-snippet">names</span>, and
+				<span class="inline-snippet">map()</span> will return the first name by
+				calling <span class="inline-snippet">name.split(" ")[0]</span>, which
+				splits up each string into an array of values, splitting those strings
+				whenever there is a space character. So, in the example of "Ben Smith",
+				<span class="inline-snippet">name.split(" ")</span> would be equal to
+				<span class="inline-snippet">["Ben", "Smith"]</span>, and the
+				<span class="inline-snippet">[0]</span> grabs the first position in that
+				array and returns that value ("Ben").
+			</p>
 		</main>
 
 		<script src="./js/index.js"></script>
