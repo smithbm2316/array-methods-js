@@ -5,7 +5,7 @@
 
 
 */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap");
 
 @font-face {
 	font-family: "Streamster";
@@ -33,19 +33,27 @@
 /* Light theme */
 [data-theme="light"] {
 	/* Base background and text color */
-	--bg: #f0eff1;
+	--bg: #fff;
 	--text: #231b30;
 
 	/* Logo */
 	--logo-brackets: #e1acff;
 	--logo-gradient: linear-gradient(
 		0deg,
-		#f92aad 40%,
-		#e1acff,
-		#8093d4,
-		#92ecf9 85%
+		rgba(249, 42, 173, 0.95) 40%,
+		rgba(225, 172, 255, 0.95),
+		rgba(128, 147, 212, 0.95),
+		rgba(146, 236, 249, 0.95) 85%
 	);
-	--logo-shadow: 2px 3px 7px rgba(128, 147, 212, 0.7);
+	--logo-gradient-hover: linear-gradient(
+		0deg,
+		rgba(249, 42, 173, 1) 40%,
+		rgba(225, 172, 255, 1) 60%,
+		rgba(128, 147, 212, 1),
+		rgba(146, 236, 249, 1)
+	);
+	--logo-shadow: 2px 3px 4px rgba(183, 125, 230, 0.5);
+	--logo-shadow-hover: 3px 4px 2px rgba(183, 125, 230, 0.65);
 
 	/* Navbar */
 	--nav-text: #4e3d69;
@@ -60,14 +68,19 @@
 	--link-hover: #8590ce;
 	--link-active: #6d77b3;
 
-	/* Code Snippets */
+	/* Inline Snippets */
 	--inline-snippet-text: #2a2139;
 	--inline-snippet-bg: #dddddd;
 	--inline-snippet-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-	--snippet-bg: #2a2139;
-	--copy-btn: #e1acff;
+
+	/* Code Snippets */
+	--snippet-font-weight: 500;
+	--snippet-gradient: #f9fbfc;
+	--snippet-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--copy-btn: #c792ea;
 	--copy-hover: #f772e0;
-	--copy-focus-active: #fede5d;
+	--copy-focus-active: #b34fa2;
 }
 
 /* Dark theme */
@@ -80,12 +93,20 @@
 	--logo-brackets: #4e3d69;
 	--logo-gradient: linear-gradient(
 		0deg,
-		#f92aad 40%,
-		#e1acff,
-		#8093d4,
-		#92ecf9 85%
+		rgba(249, 42, 173, 0.95) 40%,
+		rgba(225, 172, 255, 0.95),
+		rgba(128, 147, 212, 0.95),
+		rgba(146, 236, 249, 0.95) 85%
+	);
+	--logo-gradient-hover: linear-gradient(
+		0deg,
+		rgba(249, 42, 173, 1) 40%,
+		rgba(225, 172, 255, 1),
+		rgba(128, 147, 212, 1),
+		rgba(146, 236, 249, 1) 80%
 	);
 	--logo-shadow: 2px 3px 7px rgba(247, 114, 224, 0.3);
+	--logo-shadow-hover: 4px 5px 12px rgba(114, 198, 247, 0.3);
 
 	/* Navbar */
 	--nav-text: #848dc4;
@@ -100,14 +121,18 @@
 	--link-hover: #f92aad;
 	--link-active: #c9228b;
 
-	/* Code Snippets */
+	/* Inline Snippets */
 	--inline-snippet-text: #f0eff1;
 	--inline-snippet-bg: #312942;
 	--inline-snippet-shadow: none;
-	--snippet-bg: #312942;
-	--copy-btn: #e1acff;
+
+	/* Code Snippets */
+	--snippet-font-weight: 500;
+	--snippet-gradient: linear-gradient(15deg, #f92aad, #f88414 65%, #fede5d);
+	--snippet-shadow: none;
+	--copy-btn: #c792ea;
 	--copy-hover: #f772e0;
-	--copy-focus-active: #fede5d;
+	--copy-focus-active: #b34fa2;
 }
 
 /* Class to add during transition of themes */
@@ -151,6 +176,11 @@ html {
 	position: relative;
 }
 
+.logo a {
+	cursor: pointer;
+	z-index: 1;
+}
+
 .logo h1 {
 	/* Gradient on text */
 	background: var(--logo-gradient);
@@ -160,8 +190,18 @@ html {
 
 	font-size: 4.5rem;
 	padding: 1.5rem;
+	transition: 0.75s ease;
 	text-shadow: var(--logo-shadow);
 	z-index: 1;
+}
+
+.logo h1:hover {
+	background: var(--logo-gradient-hover);
+	background-clip: text;
+	color: transparent;
+	-webkit-background-clip: text;
+
+	text-shadow: var(--logo-shadow-hover);
 }
 
 .logo p {
@@ -169,11 +209,6 @@ html {
 	font-size: 8rem;
 	position: absolute;
 	z-index: 0;
-}
-
-.logo a {
-	cursor: pointer;
-	z-index: 1;
 }
 
 /*
@@ -240,8 +275,8 @@ main h2 {
 	text-shadow: var(--heading-shadow);
 }
 
-main p,
-.snippet {
+main > p,
+main > div {
 	margin: 2rem 0;
 }
 
@@ -279,19 +314,17 @@ main p,
 }
 
 .snippet {
-	background: var(--snippet-bg);
-	border-radius: 0.5rem;
-	padding: 1rem 1rem 1rem 1.5rem;
-}
-
-.snippet-bar {
-	display: flex;
-	flex-direction: row-reverse;
+	background: var(--snippet-gradient);
+	box-shadow: var(--snippet-shadow);
+	border-radius: 0.6rem;
+	font-weight: var(--snippet-font-weight);
+	padding: 3px;
+	position: relative;
 }
 
 .snippet-copy {
 	/* resets for styling */
-	background: inherit;
+	background: transparent;
 	border: 0;
 	border-radius: 0.5rem;
 	color: var(--copy-btn);
@@ -299,10 +332,11 @@ main p,
 	white-space: nowrap;
 
 	/* sizing and positioning */
-	width: 25px;
-	height: 25px;
-	margin-left: 0.5rem;
-	padding: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	position: absolute;
+	top: 0.9rem;
+	right: 0.9rem;
 }
 
 .snippet-copy:hover {
@@ -312,12 +346,6 @@ main p,
 .snippet-copy:focus,
 .snippet-copy:active {
 	color: var(--copy-focus-active);
-}
-
-.snippet pre,
-.snippet-one {
-	background: var(--snippet-bg) !important;
-	font-weight: 400;
 }
 
 /* Copy button transition animation */

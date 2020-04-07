@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="./assets/js.ico" type="image/x-icon" />
 		<title>Map - Array Methods</title>
 		<link rel="stylesheet" href="./css/preflight.css" />
 		<link rel="stylesheet" href="./css/main.css" />
@@ -24,7 +25,7 @@
 		</header>
 
 		<main>
-			<h2>What is Map()?</h2>
+			<h2>What is map()?</h2>
 			<p>
 				As per the
 				<a
@@ -44,36 +45,53 @@
 			</p>
 
 			<div class="snippet">
-				<div class="snippet-bar">
-					<button class="snippet-copy" data-clipboard-target=".snippet-one">
-						<svg
-							id="copy-svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-							/>
-						</svg>
-					</button>
-				</div>
+				<button
+					class="snippet-copy"
+					aria-label="Toggle Theme"
+					data-clipboard-target=".snippet-one"
+				>
+					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+						/>
+					</svg>
+				</button>
 				<pre>
-          <code class="language-js snippet-one">
-            const names = [
+            <code class="language-js snippet-one">
+              const names = [
               "Ben Smith", 
               "John Michaelson", 
               "Wes Tomkins", 
               "Julie Donaldson", 
               "Katelyn Roberts"
-            ];
-            const firstNames = names.map(name => name.split(" ")[0]);
-            // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
-          </code>
-        </pre>
+              ];
+              const firstNames = names.map(name => name.split(" ")[0]);
+              // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
+
+              function testFunc() {
+                return names[0];
+              }
+
+              class NewClass {
+                constructor() {
+                  const name = "hello";
+                }
+              
+                newFunc() {
+                  return null;
+                }
+              
+              }
+
+              const cl = new NewClass();
+              const boolVal = true;
+
+              const CONSTANT = 400;
+            </code>
+          </pre>
 			</div>
 
 			<p>
