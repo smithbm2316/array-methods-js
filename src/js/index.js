@@ -32,7 +32,9 @@ window.onload = (event) => {
 };
 
 // Select the theme toggle button
-const toggleThemeBtn = document.querySelector(".toggle-theme");
+const toggleThemeBtn = document
+	.querySelector("nav-menu")
+	.shadowRoot.querySelector(".toggle-theme");
 
 // Add an event listener that adds the correct theme via data-theme attribute
 toggleThemeBtn.addEventListener("click", () => {

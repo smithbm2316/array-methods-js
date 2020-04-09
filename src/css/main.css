@@ -5,7 +5,6 @@
 
 
 */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap");
 
 @font-face {
 	font-family: "Streamster";
@@ -20,6 +19,12 @@
 @font-face {
 	font-family: "Gilles Gothic";
 	src: url("../assets/gilles-gothic.ttf");
+}
+
+@font-face {
+	font-family: "JetBrains Mono";
+	font-weight: normal;
+	src: url("../assets/JetBrainsMono-Regular.woff2") format("woff2");
 }
 
 /*
@@ -74,13 +79,15 @@
 	--inline-snippet-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
 	/* Code Snippets */
-	--snippet-font-weight: 500;
 	--snippet-gradient: #f9fbfc;
 	--snippet-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
 	--copy-btn: #c792ea;
 	--copy-hover: #f772e0;
 	--copy-focus-active: #b34fa2;
+
+	/* Footer */
+	--footer-bg: #fff;
 }
 
 /* Dark theme */
@@ -127,12 +134,14 @@
 	--inline-snippet-shadow: none;
 
 	/* Code Snippets */
-	--snippet-font-weight: 500;
 	--snippet-gradient: linear-gradient(15deg, #f92aad, #f88414 65%, #fede5d);
 	--snippet-shadow: none;
 	--copy-btn: #c792ea;
 	--copy-hover: #f772e0;
 	--copy-focus-active: #b34fa2;
+
+	/* Footer */
+	--footer-bg: #231b30;
 }
 
 /* Class to add during transition of themes */
@@ -155,107 +164,12 @@ html {
 	font-size: 18px;
 	font-weight: 400;
 	letter-spacing: 0.05rem;
+}
+
+header,
+main {
 	margin: 0 auto;
 	width: 50%;
-}
-
-/*
-
-
-  ----- Logo Banner -----
-
-
-*/
-
-.logo {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	font-family: "Streamster";
-	margin-top: 2rem;
-	position: relative;
-}
-
-.logo a {
-	cursor: pointer;
-	z-index: 1;
-}
-
-.logo h1 {
-	/* Gradient on text */
-	background: var(--logo-gradient);
-	background-clip: text;
-	color: transparent;
-	-webkit-background-clip: text;
-
-	font-size: 4.5rem;
-	padding: 1.5rem;
-	transition: 0.75s ease;
-	text-shadow: var(--logo-shadow);
-	z-index: 1;
-}
-
-.logo h1:hover {
-	background: var(--logo-gradient-hover);
-	background-clip: text;
-	color: transparent;
-	-webkit-background-clip: text;
-
-	text-shadow: var(--logo-shadow-hover);
-}
-
-.logo p {
-	color: var(--logo-brackets);
-	font-size: 8rem;
-	position: absolute;
-	z-index: 0;
-}
-
-/*
-
-
-  ----- Navbar -----
-
-
-*/
-
-nav {
-	display: flex;
-	justify-content: space-between;
-	margin: 0 auto;
-	width: 60%;
-}
-
-/* boosts z-index to be on top of [] symbol of logo */
-nav a,
-.toggle-theme {
-	font-family: "Gilles Gothic", --apple-system, Helvetica, Arial, sans-serif;
-	font-weight: normal;
-	font-size: 2rem;
-	text-shadow: var(--nav-shadow);
-	z-index: 1;
-}
-
-nav a,
-nav a:visited,
-.toggle-theme {
-	color: var(--nav-text);
-}
-
-nav a:hover,
-nav a:focus,
-.toggle-theme:hover,
-.toggle-theme:focus {
-	text-decoration: underline;
-}
-
-.toggle-theme {
-	/* resets for styling */
-	background: inherit;
-	border: 0;
-	border-radius: 0.5rem;
-	cursor: pointer;
-	white-space: nowrap;
 }
 
 /*
@@ -308,7 +222,8 @@ main > div {
 	border-radius: 0.2rem;
 	box-shadow: var(--inline-snippet-shadow);
 	color: var(--inline-snippet-text);
-	font-family: "Fira Code", monospace;
+	font-family: "JetBrains Mono", monospace;
+	font-weight: 400;
 	font-size: 0.85rem;
 	padding: 0.15rem 0.4rem;
 }
@@ -317,9 +232,12 @@ main > div {
 	background: var(--snippet-gradient);
 	box-shadow: var(--snippet-shadow);
 	border-radius: 0.6rem;
-	font-weight: var(--snippet-font-weight);
 	padding: 3px;
 	position: relative;
+}
+
+.language-js {
+	font-family: "JetBrains Mono", monospace;
 }
 
 .snippet-copy {
@@ -362,31 +280,36 @@ main > div {
 */
 
 @media (min-width: 1920px) {
-	html {
+	header,
+	main {
 		width: 960px;
 	}
 }
 
 @media (max-width: 1440px) {
-	html {
+	header,
+	main {
 		width: 60%;
 	}
 }
 
 @media (max-width: 960px) {
-	html {
+	header,
+	main {
 		width: 70%;
 	}
 }
 
 @media (max-width: 680px) {
-	html {
+	header,
+	main {
 		width: 80%;
 	}
 }
 
 @media (max-width: 600px) {
-	html {
+	header,
+	main {
 		width: 90%;
 	}
 
@@ -413,7 +336,8 @@ main > div {
 }
 
 @media (max-width: 420px) {
-	html {
+	header,
+	main {
 		font-size: 16px;
 	}
 

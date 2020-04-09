@@ -11,17 +11,8 @@
 	</head>
 	<body>
 		<header>
-			<div class="logo">
-				<a href="/">
-					<h1>Array Methods</h1>
-				</a>
-				<p>[]</p>
-			</div>
-			<nav>
-				<a href="/">Home</a>
-				<a href="./map.html">Map</a>
-				<button class="toggle-theme">Toggle me!</button>
-			</nav>
+			<banner-logo></banner-logo>
+			<nav-menu></nav-menu>
 		</header>
 
 		<main>
@@ -33,7 +24,7 @@
 					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
 					>Mozilla Developer Network (MDN)</a
 				>
-				web documenation, "The <span class="inline-snippet">map()</span> method
+				web documentation, "The <span class="inline-snippet">map()</span> method
 				creates a new array populated with the results of calling a provided
 				function on every element in the calling array." Unlike
 				<span class="inline-snippet">forEach()</span>,
@@ -62,11 +53,11 @@
 				<pre>
             <code class="language-js snippet-one">
               const names = [
-              "Ben Smith", 
-              "John Michaelson", 
-              "Wes Tomkins", 
-              "Julie Donaldson", 
-              "Katelyn Roberts"
+                "Ben Smith", 
+                "John Michaelson", 
+                "Wes Tomkins", 
+                "Julie Donaldson", 
+                "Katelyn Roberts"
               ];
               const firstNames = names.map(name => name.split(" ")[0]);
               // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
@@ -102,6 +93,9 @@
 			</p>
 		</main>
 
+		<footer-bar></footer-bar>
+
+		<script src="./js/components.js"></script>
 		<script src="./js/index.js"></script>
 	</body>
 </html>
