@@ -65,6 +65,9 @@
 	--nav-text: #4e3d69;
 	--nav-shadow: 1px 2px 5px rgba(35, 27, 48, 0.2);
 
+	/* Theme toggle */
+	--toggle-icon: #fede5d;
+
 	/* Headings */
 	--heading-text: #4e3d69;
 	--heading-shadow: 1px 2px 5px rgba(35, 27, 48, 0.2);
@@ -120,6 +123,9 @@
 	/* Navbar */
 	--nav-text: #848dc4;
 	--nav-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
+
+	/* Theme toggle */
+	--toggle-icon: #6d77b3;
 
 	/* Headings */
 	--heading-text: #c792ea;
@@ -275,6 +281,35 @@ main > div {
 
 .landing-nav a:active {
 	color: var(--link-active);
+}
+
+.landing-nav .toggle-theme {
+	background: var(--bg);
+	border-radius: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.sun,
+.moon {
+	fill: var(--toggle-icon);
+	padding: 0 0.5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.landing-nav .slider {
+	fill: #6d77b3;
+	position: absolute;
+	left: 9px;
+	top: 11px;
+	transition: all 0.4s ease;
+}
+
+.landing-nav .slider:active {
+	transform: translateX(40px);
 }
 
 /*
