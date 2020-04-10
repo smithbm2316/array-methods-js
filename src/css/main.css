@@ -39,6 +39,7 @@
 [data-theme="light"] {
 	/* Base background and text color */
 	--bg: #fff;
+	--landing-bg: #f0eff1;
 	--text: #231b30;
 
 	/* Logo */
@@ -94,6 +95,7 @@
 [data-theme="dark"] {
 	/* Base background and text color */
 	--bg: #2a2139;
+	--landing-bg: #231b30;
 	--text: #f0eff1;
 
 	/* Logo */
@@ -166,9 +168,14 @@ html {
 	letter-spacing: 0.05rem;
 }
 
+header {
+	margin-top: 2rem;
+}
+
 header,
 main {
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	width: 50%;
 }
 
@@ -206,6 +213,67 @@ main > div {
 }
 
 .inline-link:active {
+	color: var(--link-active);
+}
+
+/*
+
+
+  ----- Landing page styles -----
+
+
+*/
+
+.landing-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+}
+
+.landing-wrapper {
+	background: var(--snippet-gradient);
+	border-radius: 1.1rem;
+	padding: 3px;
+	height: 90%;
+	width: 50%;
+}
+
+.landing-main {
+	background: var(--landing-bg);
+	border-radius: 1rem;
+	box-shadow: var(--snippet-shadow);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 2rem;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	text-align: center;
+}
+
+.landing-nav {
+	color: var(--link);
+	display: flex;
+	justify-content: space-evenly;
+	font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
+	font-size: 2rem;
+	position: absolute;
+	top: 20px;
+	width: 100%;
+}
+
+.landing-nav a:hover,
+.landing-nav a:focus {
+	color: var(--link-hover);
+	text-decoration: underline;
+}
+
+.landing-nav a:active {
 	color: var(--link-active);
 }
 
@@ -281,14 +349,16 @@ main > div {
 
 @media (min-width: 1920px) {
 	header,
-	main {
+	main,
+	.landing-wrapper {
 		width: 960px;
 	}
 }
 
 @media (max-width: 1440px) {
 	header,
-	main {
+	main,
+	.landing-wrapper {
 		width: 60%;
 	}
 }
@@ -298,12 +368,24 @@ main > div {
 	main {
 		width: 70%;
 	}
+
+	.landing-wrapper {
+		width: 85%;
+	}
 }
 
 @media (max-width: 680px) {
 	header,
 	main {
 		width: 80%;
+	}
+
+	.landing-wrapper {
+		width: 90%;
+	}
+
+	.landing-main {
+		padding: 0 1rem;
 	}
 }
 
@@ -313,20 +395,7 @@ main > div {
 		width: 90%;
 	}
 
-	.logo h1 {
-		font-size: 3rem;
-	}
-
-	.logo p {
-		font-size: 6rem;
-	}
-
-	nav {
-		width: 80%;
-	}
-
-	nav a,
-	.toggle-theme {
+	.landing-nav {
 		font-size: 1.75rem;
 	}
 
@@ -337,25 +406,9 @@ main > div {
 
 @media (max-width: 420px) {
 	header,
-	main {
+	main,
+	.landing-wrapper {
 		font-size: 16px;
-	}
-
-	.logo h1 {
-		font-size: 2.75rem;
-	}
-
-	.logo p {
-		font-size: 6rem;
-	}
-
-	nav {
-		width: 100%;
-	}
-
-	nav a,
-	.toggle-theme {
-		font-size: 2rem;
 	}
 
 	main h2 {

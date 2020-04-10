@@ -13,7 +13,6 @@ export class BannerLogo extends LitElement {
 				display: flex;
 				flex-direction: column;
 				font-family: "Streamster";
-				margin-top: 2rem;
 				position: relative;
 			}
 
@@ -51,6 +50,26 @@ export class BannerLogo extends LitElement {
 				font-size: 8rem;
 				position: absolute;
 				z-index: 0;
+			}
+
+			@media (max-width: 600px) {
+				.logo h1 {
+					font-size: 3rem;
+				}
+
+				.logo p {
+					font-size: 6rem;
+				}
+			}
+
+			@media (max-width: 420px) {
+				.logo h1 {
+					font-size: 2.75rem;
+				}
+
+				.logo p {
+					font-size: 6rem;
+				}
 			}
 		`;
 	}

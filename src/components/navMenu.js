@@ -42,6 +42,28 @@ export class NavMenu extends LitElement {
 				cursor: pointer;
 				white-space: nowrap;
 			}
+
+			@media (min-width: 600px) {
+				nav {
+					width: 80%;
+				}
+
+				nav a,
+				.toggle-theme {
+					font-size: 1.75rem;
+				}
+			}
+
+			@media (min-width: 420px) {
+				nav {
+					width: 100%;
+				}
+
+				nav a,
+				.toggle-theme {
+					font-size: 2rem;
+				}
+			}
 		`;
 	}
 
