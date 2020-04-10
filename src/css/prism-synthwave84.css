@@ -82,8 +82,6 @@ pre[class*="language-"] {
 	color: var(--main-text);
 	text-shadow: var(--main-shadow);
 	background: none;
-	font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
-		monospace;
 	font-size: 0.85rem;
 	text-align: left;
 	white-space: pre;
