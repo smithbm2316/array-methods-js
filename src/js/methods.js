@@ -1,6 +1,15 @@
-import { BannerLogo } from "../components/bannerLogo";
+import ClipboardJS from "clipboard";
+import Prism from "prismjs";
+import NormalizeWhitespace from "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
-customElements.define("banner-logo", BannerLogo);
+/* ClipboardJS script */
+// TODO add an indicator that text has been copied, remove highlighting of text for mobile
+// Grab all the copy buttons on the various snippets
+const examples = document.querySelectorAll(".snippet-copy");
+const clipboard = new ClipboardJS(examples);
+
+/* PrismJS script */
+Prism.highlightAll();
 
 /* Light/dark mode theme toggle */
 // On page load, check user's color scheme preference and set default scheme
@@ -23,7 +32,9 @@ window.onload = (event) => {
 };
 
 // Select the theme toggle button
-const toggleThemeBtn = document.querySelector(".toggle-theme");
+const toggleThemeBtn = document
+	.querySelector("nav-menu")
+	.shadowRoot.querySelector(".toggle-theme");
 
 // Add an event listener that adds the correct theme via data-theme attribute
 toggleThemeBtn.addEventListener("click", () => {

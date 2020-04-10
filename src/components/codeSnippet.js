@@ -1,8 +1,17 @@
 import { LitElement, html, css } from "lit-element";
 
 export class CodeSnippet extends LitElement {
+	static get properties() {
+		return { cliptarget: String };
+	}
+
 	static get styles() {
 		return css`
+			:host * {
+				margin: 0;
+				padding: 0;
+			}
+
 			.snippet {
 				background: var(--snippet-gradient);
 				box-shadow: var(--snippet-shadow);
@@ -50,6 +59,7 @@ export class CodeSnippet extends LitElement {
 
 	constructor() {
 		super();
+		this.cliptarget = "ex";
 	}
 
 	render() {
@@ -58,7 +68,7 @@ export class CodeSnippet extends LitElement {
 				<button
 					class="snippet-copy"
 					aria-label="Copy Snippet to clipboard"
-					data-clipboard-target="${clipboardTarget}"
+					data-clipboard-target="${this.cliptarget}"
 				>
 					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
@@ -69,10 +79,9 @@ export class CodeSnippet extends LitElement {
 						/>
 					</svg>
 				</button>
-				<pre>
-          ${codeSnippet}
-        </pre
-				>
+				<slot name="pre">
+					<slot name="code"></slot>
+				</slot>
 			</div>
 		`;
 	}

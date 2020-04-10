@@ -62,7 +62,7 @@ export class BannerLogo extends LitElement {
 	render() {
 		return html`
 			<div class="logo">
-				<a href="./">
+				<a href="/">
 					<h1>Array Methods</h1>
 				</a>
 				<p>[]</p>
