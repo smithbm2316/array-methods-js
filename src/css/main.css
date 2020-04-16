@@ -62,7 +62,6 @@
 	--logo-shadow-hover: 3px 4px 2px rgba(183, 125, 230, 0.65);
 
 	/* Navbar */
-	--nav-text: #4e3d69;
 	--nav-shadow: 1px 2px 5px rgba(35, 27, 48, 0.2);
 
 	/* Theme toggle */
@@ -121,7 +120,6 @@
 	--logo-shadow-hover: 4px 5px 12px rgba(114, 198, 247, 0.3);
 
 	/* Navbar */
-	--nav-text: #848dc4;
 	--nav-shadow: 2px 3px 3px rgba(247, 114, 224, 0.3);
 
 	/* Theme toggle */
@@ -152,9 +150,13 @@
 	--footer-bg: #231b30;
 }
 
-/* Class to add during transition of themes */
+/* Classes to add during transition of themes */
 .theme-transition {
 	transition: background 0.25s ease-in-out;
+}
+
+.slider-transition {
+	transition: 0.3s ease-out;
 }
 
 /*
@@ -166,6 +168,9 @@
 */
 
 html {
+	/* Slider transition value */
+	--slider-transition: none;
+
 	background: var(--bg);
 	color: var(--text);
 	font-family: "Eurostile", --apple-system, Helvetica, Arial, sans-serif;
@@ -266,11 +271,18 @@ main > div {
 	color: var(--link);
 	display: flex;
 	justify-content: space-evenly;
+	align-items: center;
 	font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
 	font-size: 2rem;
 	position: absolute;
 	top: 20px;
 	width: 100%;
+}
+
+.landing-nav a,
+.landing-nav .toggle-theme {
+	font-weight: normal;
+	text-shadow: var(--nav-shadow);
 }
 
 .landing-nav a:hover,
@@ -286,10 +298,13 @@ main > div {
 .landing-nav .toggle-theme {
 	background: var(--bg);
 	border-radius: 1.5rem;
+	cursor: pointer;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
+	height: 40px;
+	width: 80px;
 }
 
 .sun,
@@ -301,15 +316,8 @@ main > div {
 }
 
 .landing-nav .slider {
-	fill: #6d77b3;
+	fill: var(--toggle-icon);
 	position: absolute;
-	left: 9px;
-	top: 11px;
-	transition: all 0.4s ease;
-}
-
-.landing-nav .slider:active {
-	transform: translateX(40px);
 }
 
 /*
