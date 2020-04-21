@@ -328,7 +328,7 @@ main > div {
 
 */
 
-.inline-snippet {
+.code-inline {
 	background: var(--inline-snippet-bg);
 	border-radius: 0.2rem;
 	box-shadow: var(--inline-snippet-shadow);

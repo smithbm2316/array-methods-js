@@ -27,9 +27,11 @@ window.onload = (event) => {
 		if (schemeQuery.matches) {
 			document.documentElement.setAttribute("data-theme", "dark");
 			toggleThemeSlider.setAttribute("cx", "6");
+			localStorage.setItem("theme", "dark");
 		} else {
 			document.documentElement.setAttribute("data-theme", "light");
 			toggleThemeSlider.setAttribute("cx", "14");
+			localStorage.setItem("theme", "light");
 		}
 	}
 };
