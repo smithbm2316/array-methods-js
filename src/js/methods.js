@@ -16,56 +16,55 @@ Prism.highlightAll();
 // Select the theme toggle button
 const navMenu = document.querySelector("nav-menu");
 const toggleThemeBtn = navMenu.shadowRoot.querySelector(".toggle-theme");
-const toggleThemeSlider = navMenu.shadowRoot.querySelector(".slider-circle");
-
-// Set x values for slider
-const xDark = "4";
-const xLight = "14";
+const toggleSun = navMenu.shadowRoot.querySelector(".sun");
+const toggleMoon = navMenu.shadowRoot.querySelector(".moon");
 
 // On page load, check user's color scheme preference and set default scheme
 window.onload = (event) => {
-	// Define the query to check
-	const schemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  // Define the query to check
+  const schemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-	// Set scheme based upon whether user's preferences is dark or light
-	const localTheme = localStorage.getItem("theme");
+  // Set scheme based upon whether user's preferences is dark or light
+  const localTheme = localStorage.getItem("theme");
 
-	if (localTheme !== null) {
-		document.documentElement.setAttribute("data-theme", localTheme);
-		if (localTheme === "dark") {
-			toggleThemeSlider.setAttribute("cx", xDark);
-		} else {
-			toggleThemeSlider.setAttribute("cx", xLight);
-		}
-	} else {
-		if (schemeQuery.matches) {
-			document.documentElement.setAttribute("data-theme", "dark");
-			toggleThemeSlider.setAttribute("cx", xDark);
-		} else {
-			document.documentElement.setAttribute("data-theme", "light");
-			toggleThemeSlider.setAttribute("cx", xLight);
-		}
-	}
+  if (localTheme !== null) {
+    document.documentElement.setAttribute("data-theme", localTheme);
+    if (localTheme === "dark") {
+      toggleMoon.classList.toggle("toggle-hidden");
+    } else {
+      toggleSun.classList.toggle("toggle-hidden");
+    }
+  } else {
+    if (schemeQuery.matches) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+      toggleMoon.classList.toggle("toggle-hidden");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+      toggleSun.classList.toggle("toggle-hidden");
+    }
+  }
 };
 
 // Add an event listener that adds the correct theme via data-theme attribute
 toggleThemeBtn.addEventListener("click", () => {
-	// Add class for transition only when toggling the theme
-	document.documentElement.classList.add("theme-transition");
-	const html = (document.documentElement.style.cssText =
-		"--slider-transition: 0.3s ease-out");
+  // Add class for transition only when toggling the theme
+  document.documentElement.classList.add("theme-transition");
 
-	// Toggle the theme
-	if (document.documentElement.getAttribute("data-theme") === "dark") {
-		document.documentElement.setAttribute("data-theme", "light");
-		toggleThemeSlider.setAttribute("cx", xLight);
-		localStorage.setItem("theme", "light");
-	} else {
-		document.documentElement.setAttribute("data-theme", "dark");
-		toggleThemeSlider.setAttribute("cx", xDark);
-		localStorage.setItem("theme", "dark");
-	}
+  // Toggle the theme
+  if (document.documentElement.getAttribute("data-theme") === "dark") {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    toggleSun.classList.toggle("toggle-hidden");
+    toggleMoon.classList.toggle("toggle-hidden");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    toggleSun.classList.toggle("toggle-hidden");
+    toggleMoon.classList.toggle("toggle-hidden");
+  }
 
-	// Remove the transition class, so it doesn't show it on page reload
-	document.documentElement.classList.remove(".theme-transition");
+  // Remove the transition class, so it doesn't show it on page reload
+  document.documentElement.classList.remove(".theme-transition");
 });
