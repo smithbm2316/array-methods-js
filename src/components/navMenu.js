@@ -67,25 +67,28 @@ export class NavMenu extends LitElement {
         display: none;
       }
 
-      @media (min-width: 600px) {
+      @media (max-width: 960px) {
         nav {
-          width: 80%;
+          width: 90%;
         }
+      }
 
+      @media (max-width: 600px) {
         nav a,
         .toggle-theme {
           font-size: 1.75rem;
         }
       }
 
-      @media (min-width: 420px) {
+      @media (max-width: 420px) {
         nav {
+          justify-content: space-between;
           width: 100%;
         }
 
         nav a,
         .toggle-theme {
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
       }
     `;
