@@ -1,128 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="../assets/js.ico" type="image/x-icon" />
-		<title>Map - Array Methods</title>
-		<link rel="stylesheet" href="../css/preflight.css" />
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/prism-synthwave84.css" />
-	</head>
-	<body>
-		<header>
-			<banner-logo></banner-logo>
-			<nav-menu></nav-menu>
-		</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/js.ico" type="image/x-icon" />
+    <title>Map - Array Methods</title>
+    <link rel="stylesheet" href="../css/preflight.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/prism-synthwave84.css" />
+  </head>
+  <body>
+    <header>
+      <banner-logo></banner-logo>
+      <nav-menu></nav-menu>
+    </header>
 
-		<main>
-			<h2>What is map()?</h2>
-			<p>
-				As per the
-				<a
-					class="inline-link"
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
-					>Mozilla Developer Network (MDN)</a
-				>
-				web documentation, "The <code class="code-inline">map()</code> method
-				<b>creates a new array</b> populated with the results of calling a
-				provided function on every element in the calling array." Unlike
-				<code class="code-inline">forEach()</code>,
-				<code class="code-inline">map()</code> returns an array with the same
-				length as the array it was called on.
-				<code class="code-inline">map()</code> allows you to take an array of
-				pre-existing data and manipulate that data, without affecting the
-				original array. It takes in a callback function as an argument, which
-				only has one required parameter:
-				<code class="code-inline">currentValue</code>. The
-				<code class="code-inline">currentValue</code> will be equal to the
-				element that we are currently iterating over within
-				<code class="code-inline">map()</code>. There are several other optional
-				parameters (such as index, which is quite useful) that are not within
-				the scope of this post, but you can read about on the
-				<a
-					class="inline-link"
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
-					>Mozilla Developer Network (MDN)</a
-				>
-				web documentation. Let’s jump into some examples!
-			</p>
+    <main>
+      <h2>What is map()?</h2>
+      <p>
+        As per the
+        <a
+          class="inline-link"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+          >Mozilla Developer Network (MDN)</a
+        >
+        web documentation, "The <code class="code-inline">map()</code> method
+        <b>creates a new array</b> populated with the results of calling a
+        provided function on every element in the calling array." Unlike
+        <code class="code-inline">forEach()</code>,
+        <code class="code-inline">map()</code> returns an array with the same
+        length as the array it was called on.
+        <code class="code-inline">map()</code> allows you to take an array of
+        pre-existing data and manipulate that data, without affecting the
+        original array. It takes in a callback function as an argument, which
+        only has one required parameter:
+        <code class="code-inline">currentValue</code>. The
+        <code class="code-inline">currentValue</code> will be equal to the
+        element that we are currently iterating over within
+        <code class="code-inline">map()</code>. There are several other optional
+        parameters (such as index, which is quite useful) that are not within
+        the scope of this post, but you can read about on the
+        <a
+          class="inline-link"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+          >Mozilla Developer Network (MDN)</a
+        >
+        web documentation. Let’s jump into some examples!
+      </p>
 
-			<p>
-				<code class="code-inline">map()</code> has a plethora of uses in
-				Javascript. In the snippet below, we are given an array called
-				<code class="code-inline">names</code> where we have a list of 5 names,
-				including each person's first and last name in the string. If I wanted
-				an array of those names, but only with the first names included, I can
-				use <code class="code-inline">map()</code> to easily get that data
-				without changing the original
-				<code class="code-inline">names</code> array.
-			</p>
+      <p>
+        <code class="code-inline">map()</code> has a plethora of uses in
+        Javascript. In the snippet below, we are given an array called
+        <code class="code-inline">names</code> where we have a list of 5 names,
+        including each person's first and last name in the string. If I wanted
+        an array of those names, but only with the first names included, I can
+        use <code class="code-inline">map()</code> to easily get that data
+        without changing the original
+        <code class="code-inline">names</code> array.
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
-              const names = [
-                "Ben Smith", 
-                "John Michaelson", 
-                "Wes Tomkins", 
-                "Julie Donaldson", 
-                "Katelyn Roberts"
-              ];
-              const firstNames = names.map(name => name.split(" ")[0]);
-              // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
-            </code>
-          </pre>
-			</div>
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-one"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+          <code class="language-js snippet-one">
+            const names = [
+              "Ben Smith", 
+              "John Michaelson", 
+              "Wes Tomkins", 
+              "Julie Donaldson", 
+              "Katelyn Roberts"
+            ];
+            const firstNames = names.map(name => name.split(" ")[0]);
+            // returns ["Ben", "John", "Wes", "Julie", "Katelyn"];
+          </code>
+        </pre>
+      </div>
 
-			<p>
-				We define a variable <code class="code-inline">firstNames</code> that is
-				set equal to the value that
-				<code class="code-inline">names.map()</code> returns. We pass an
-				argument of <code class="code-inline">name</code> to our callback
-				function, which will be set equal to each of the strings in
-				<code class="code-inline">names</code>.
-				<code class="code-inline">map()</code> will return the first name by
-				calling <code class="code-inline">name.split(" ")[0]</code>, which
-				splits up each string into an array of values, splitting those strings
-				whenever there is a space character. So, in the example of "Ben Smith",
-				<code class="code-inline">name.split(" ")</code> would be equal to
-				<code class="code-inline">["Ben", "Smith"]</code>, and the
-				<code class="code-inline">[0]</code> grabs the first position in that
-				array and returns that value <code class="code-inline">"Ben"</code>.
-			</p>
+      <p>
+        We define a variable <code class="code-inline">firstNames</code> that is
+        set equal to the value that
+        <code class="code-inline">names.map()</code> returns. We pass an
+        argument of <code class="code-inline">name</code> to our callback
+        function, which will be set equal to each of the strings in
+        <code class="code-inline">names</code>.
+        <code class="code-inline">map()</code> will return the first name by
+        calling <code class="code-inline">name.split(" ")[0]</code>, which
+        splits up each string into an array of values, splitting those strings
+        whenever there is a space character. So, in the example of "Ben Smith",
+        <code class="code-inline">name.split(" ")</code> would be equal to
+        <code class="code-inline">["Ben", "Smith"]</code>, and the
+        <code class="code-inline">[0]</code> grabs the first position in that
+        array and returns that value <code class="code-inline">"Ben"</code>.
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-two"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-two">
               const people = [
                 { firstName: "Ben", lastName: "Smith", age: 21 },
                 { firstName: "John", lastName: "Michaelson", age: 43 },
@@ -135,32 +135,32 @@
               // returns [21, 43, 32, 67, 27]
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				In our example above, we define an array of objects called
-				<code class="code-inline">people</code>, and we want to get an array of
-				all of the ages of the people in our array.
-				<code class="code-inline">map()</code> makes it super simple! We pass
-				<code class="code-inline">person</code> as our only argument to our
-				callback function that we provide to
-				<code class="code-inline">map()</code>, and return
-				<code class="code-inline">person.age</code> for each
-				<code class="code-inline">person</code>.
-			</p>
+      <p>
+        In our example above, we define an array of objects called
+        <code class="code-inline">people</code>, and we want to get an array of
+        all of the ages of the people in our array.
+        <code class="code-inline">map()</code> makes it super simple! We pass
+        <code class="code-inline">person</code> as our only argument to our
+        callback function that we provide to
+        <code class="code-inline">map()</code>, and return
+        <code class="code-inline">person.age</code> for each
+        <code class="code-inline">person</code>.
+      </p>
 
-			<p>
-				I hope this introduction to <code class="code-inline">map()</code> was
-				helpful to you! <code class="code-inline">map()</code> is one of the
-				most useful and common functions that I find myself using in Javascript,
-				so I encourage you to go out an explore all of the many ways that you
-				can integrate it into your projects!
-			</p>
-		</main>
+      <p>
+        I hope this introduction to <code class="code-inline">map()</code> was
+        helpful to you! <code class="code-inline">map()</code> is one of the
+        most useful and common functions that I find myself using in Javascript,
+        so I encourage you to go out an explore all of the many ways that you
+        can integrate it into your projects!
+      </p>
+    </main>
 
-		<footer-bar></footer-bar>
+    <footer-bar></footer-bar>
 
-		<script src="../js/components.js"></script>
-		<script src="../js/methods.js"></script>
-	</body>
+    <script src="../js/components.js"></script>
+    <script src="../js/methods.js"></script>
+  </body>
 </html>

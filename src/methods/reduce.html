@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="../assets/js.ico" type="image/x-icon" />
-		<title>Reduce - Array Methods</title>
-		<link rel="stylesheet" href="../css/preflight.css" />
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/prism-synthwave84.css" />
-	</head>
-	<body>
-		<header>
-			<banner-logo></banner-logo>
-			<nav-menu></nav-menu>
-		</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/js.ico" type="image/x-icon" />
+    <title>Reduce - Array Methods</title>
+    <link rel="stylesheet" href="../css/preflight.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/prism-synthwave84.css" />
+  </head>
+  <body>
+    <header>
+      <banner-logo></banner-logo>
+      <nav-menu></nav-menu>
+    </header>
 
-		<main>
-			<h2>What is reduce()?</h2>
+    <main>
+      <h2>What is reduce()?</h2>
 
-			<p>
-				While <code class="code-inline">reduce()</code> is a fairly simple
-				method once you wrap your head around it, I think it is much more
-				complicated to understand than <code class="code-inline">map()</code> or
-				<code class="code-inline">filter()</code>, so this post will be much
-				longer than the respective posts for
-				<code class="code-inline">map()</code> or
-				<code class="code-inline">filter()</code> as a result. According to the
-				<a
-					class="inline-link"
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"
-					>Mozilla Developer Network (MDN)</a
-				>
-				web documentation, "The <code class="code-inline">reduce()</code> method
-				executes a <b>reducer</b> function (that you provide) on each element of
-				the array, resulting in a single output value.”
-			</p>
+      <p>
+        While <code class="code-inline">reduce()</code> is a fairly simple
+        method once you wrap your head around it, I think it is much more
+        complicated to understand than <code class="code-inline">map()</code> or
+        <code class="code-inline">filter()</code>, so this post will be much
+        longer than the respective posts for
+        <code class="code-inline">map()</code> or
+        <code class="code-inline">filter()</code> as a result. According to the
+        <a
+          class="inline-link"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"
+          >Mozilla Developer Network (MDN)</a
+        >
+        web documentation, "The <code class="code-inline">reduce()</code> method
+        executes a <b>reducer</b> function (that you provide) on each element of
+        the array, resulting in a single output value.”
+      </p>
 
-			<p>
-				Now what the heck does that mean for us?
-				<code class="code-inline">reduce()</code> takes an array, iterates
-				through it, and performs whatever actions we instruct it inside of the
-				callback function, returning a new item based upon the actions we
-				provide. Unlike <code class="code-inline">map()</code> and
-				<code class="code-inline">filter()</code>, we have <b>two</b> required
-				parameters inside of the callback function that we provide: an
-				<b>accumulator</b> and a <b>currentValue</b>. The <b>currentValue</b> is
-				the same as <code class="code-inline">map()</code> or
-				<code class="code-inline">filter()</code>: it is the current element in
-				the array that we are performing the iteration upon. However, we also
-				have this weird parameter called <b>accumulator</b> that we have to
-				provide. The <b>accumulator</b> will always be equal to the value we
-				returned in the <b>previous</b> iteration. There is an
-				<b>optional</b> parameter that we can also pass to
-				<code class="code-inline">reduce()</code> (<b>NOT</b> inside of the
-				callback function, as the second parameter in our call of
-				<code class="code-inline">reduce()</code>) called <b>initialValue</b>,
-				that sets the initial value of <b>accumulator</b>. If you do not give an
-				<b>initialValue</b> to <code class="code-inline">reduce()</code> (which
-				as I mentioned, you do not have to),
-				<code class="code-inline">reduce()</code> will simply set the
-				<b>initialValue</b> of the <b>accumulator</b> to the first value in the
-				array which <code class="code-inline">reduce()</code> was called on. Now
-				that was a lot of information thrown at you, and you are probably still
-				confused as to how <code class="code-inline">reduce()</code> works, so
-				let’s jump into a basic example!
-			</p>
+      <p>
+        Now what the heck does that mean for us?
+        <code class="code-inline">reduce()</code> takes an array, iterates
+        through it, and performs whatever actions we instruct it inside of the
+        callback function, returning a new item based upon the actions we
+        provide. Unlike <code class="code-inline">map()</code> and
+        <code class="code-inline">filter()</code>, we have <b>two</b> required
+        parameters inside of the callback function that we provide: an
+        <b>accumulator</b> and a <b>currentValue</b>. The <b>currentValue</b> is
+        the same as <code class="code-inline">map()</code> or
+        <code class="code-inline">filter()</code>: it is the current element in
+        the array that we are performing the iteration upon. However, we also
+        have this weird parameter called <b>accumulator</b> that we have to
+        provide. The <b>accumulator</b> will always be equal to the value we
+        returned in the <b>previous</b> iteration. There is an
+        <b>optional</b> parameter that we can also pass to
+        <code class="code-inline">reduce()</code> (<b>NOT</b> inside of the
+        callback function, as the second parameter in our call of
+        <code class="code-inline">reduce()</code>) called <b>initialValue</b>,
+        that sets the initial value of <b>accumulator</b>. If you do not give an
+        <b>initialValue</b> to <code class="code-inline">reduce()</code> (which
+        as I mentioned, you do not have to),
+        <code class="code-inline">reduce()</code> will simply set the
+        <b>initialValue</b> of the <b>accumulator</b> to the first value in the
+        array which <code class="code-inline">reduce()</code> was called on. Now
+        that was a lot of information thrown at you, and you are probably still
+        confused as to how <code class="code-inline">reduce()</code> works, so
+        let’s jump into a basic example!
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-one"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
             <code class="language-js snippet-one">
               const ages = [21, 43, 32, 67, 27];
 
@@ -92,104 +92,104 @@
               console.log(maxAge); // 67
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				In this first example, we are using
-				<code class="code-inline">reduce()</code> to get the maximum value from
-				our array <code class="code-inline">ages</code>.
-				<code class="code-inline">reduce()</code> will loop over our array and
-				for each value in that array, return the higher age between
-				<code class="code-inline">accumulator</code> and
-				<code class="code-inline">currentAge</code>. If you haven’t seen the
-				<code class="code-inline">Math.max()</code> function before, all it is
-				doing is returning the higher value between whatever two arguments that
-				you pass to it (just like many methods in the built-in
-				<code class="code-inline">Math</code> object,
-				<code class="code-inline">Math.max()</code> is very useful). You'll
-				notice that we don't pass an <b>initialValue</b> to
-				<code class="code-inline">reduce()</code> in this function. While you
-				might initially think that on the first iteration
-				<code class="code-inline">currentAge</code> would be set to <b>21</b>,
-				it is actually set to <b>43</b>. 🤯 What??! Let me explain.
-			</p>
+      <p>
+        In this first example, we are using
+        <code class="code-inline">reduce()</code> to get the maximum value from
+        our array <code class="code-inline">ages</code>.
+        <code class="code-inline">reduce()</code> will loop over our array and
+        for each value in that array, return the higher age between
+        <code class="code-inline">accumulator</code> and
+        <code class="code-inline">currentAge</code>. If you haven’t seen the
+        <code class="code-inline">Math.max()</code> function before, all it is
+        doing is returning the higher value between whatever two arguments that
+        you pass to it (just like many methods in the built-in
+        <code class="code-inline">Math</code> object,
+        <code class="code-inline">Math.max()</code> is very useful). You'll
+        notice that we don't pass an <b>initialValue</b> to
+        <code class="code-inline">reduce()</code> in this function. While you
+        might initially think that on the first iteration
+        <code class="code-inline">currentAge</code> would be set to <b>21</b>,
+        it is actually set to <b>43</b>. 🤯 What??! Let me explain.
+      </p>
 
-			<p>
-				Because we don’t provide that <b>initialValue</b> to
-				<code class="code-inline">reduce()</code>, our
-				<code class="code-inline">accumulator</code> will be equal to
-				<b>21</b> and <code class="code-inline">currentAge</code> will be equal
-				to <b>43</b>, which means that we will only loop 4 times instead of the
-				5 that you may have anticipated! If we were to see the values of
-				<code class="code-inline">accumulator</code> and
-				<code class="code-inline">currentAge</code> for each iteration, we would
-				see the following:
-			</p>
+      <p>
+        Because we don’t provide that <b>initialValue</b> to
+        <code class="code-inline">reduce()</code>, our
+        <code class="code-inline">accumulator</code> will be equal to
+        <b>21</b> and <code class="code-inline">currentAge</code> will be equal
+        to <b>43</b>, which means that we will only loop 4 times instead of the
+        5 that you may have anticipated! If we were to see the values of
+        <code class="code-inline">accumulator</code> and
+        <code class="code-inline">currentAge</code> for each iteration, we would
+        see the following:
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-two"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-two">
               accumulator: 21, currentAge: 43
               accumulator: 43, currentAge: 32
               accumulator: 43, currentAge: 67
               accumulator: 67, currentAge: 27
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				As you can see, <code class="code-inline">reduce()</code> only loops 4
-				times since it sets the initial value of
-				<code class="code-inline">accumulator</code> to the first value in our
-				array (<b>21</b>). In each iteration, we return the higher number
-				between the <code class="code-inline">accumulator</code> and the
-				<code class="code-inline">currentAge</code>. Now, you might be asking
-				"Ben. Is this really all that different from running a
-				<code class="code-inline">for</code> loop that uses the same comparison
-				(<code class="code-inline">Math.max(accumulator, currentAge</code>) to
-				change a predefined value?” No, not really. But once you understand what
-				is going on with <code class="code-inline">reduce()</code>, this syntax
-				not only becomes much more clean to look at for you and other developers
-				you might work with, but unlocks even more powerful code that you can
-				write! This is a fairly trivial example meant to show you in an easy
-				manner how <code class="code-inline">reduce()</code> works. Before we
-				move on to a more complicated example, let’s refactor the above snippet
-				to demonstrate how to set the <b>initialValue</b> for
-				<code class="code-inline">reduce()</code> as well as use one of my
-				favorite things in Javascript: the <b>ternary operator</b>!
-			</p>
+      <p>
+        As you can see, <code class="code-inline">reduce()</code> only loops 4
+        times since it sets the initial value of
+        <code class="code-inline">accumulator</code> to the first value in our
+        array (<b>21</b>). In each iteration, we return the higher number
+        between the <code class="code-inline">accumulator</code> and the
+        <code class="code-inline">currentAge</code>. Now, you might be asking
+        "Ben. Is this really all that different from running a
+        <code class="code-inline">for</code> loop that uses the same comparison
+        (<code class="code-inline">Math.max(accumulator, currentAge</code>) to
+        change a predefined value?” No, not really. But once you understand what
+        is going on with <code class="code-inline">reduce()</code>, this syntax
+        not only becomes much more clean to look at for you and other developers
+        you might work with, but unlocks even more powerful code that you can
+        write! This is a fairly trivial example meant to show you in an easy
+        manner how <code class="code-inline">reduce()</code> works. Before we
+        move on to a more complicated example, let’s refactor the above snippet
+        to demonstrate how to set the <b>initialValue</b> for
+        <code class="code-inline">reduce()</code> as well as use one of my
+        favorite things in Javascript: the <b>ternary operator</b>!
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-three"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-three">
               const ages = [21, 43, 32, 67, 27];
 
               // Using the Javascript ternary operator
@@ -202,83 +202,83 @@
               console.log(maxAge); // 67
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				If you're not familiar with the <b>ternary operator</b>, it’s a very
-				useful feature that the
-				<a
-					class="inline-link"
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
-					>Mozilla Developer Network (MDN)</a
-				>
-				will explain in greater detail than I will here. The
-				<b>ternary operator</b> is at its core a shorter syntax for an
-				<b>if/else</b> block of code. You start with an expression the resolves
-				to a <b>truthy</b> or <b>falsy</b> value and use the
-				<code class="code-inline">?</code> to denote that if that value is
-				<b>truthy</b>, you want to do something based on that expression.
-				Otherwise if the expression is <b>falsy</b>, you will default to some
-				other code that comes after the <code class="code-inline">:</code> .
-			</p>
+      <p>
+        If you're not familiar with the <b>ternary operator</b>, it’s a very
+        useful feature that the
+        <a
+          class="inline-link"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
+          >Mozilla Developer Network (MDN)</a
+        >
+        will explain in greater detail than I will here. The
+        <b>ternary operator</b> is at its core a shorter syntax for an
+        <b>if/else</b> block of code. You start with an expression the resolves
+        to a <b>truthy</b> or <b>falsy</b> value and use the
+        <code class="code-inline">?</code> to denote that if that value is
+        <b>truthy</b>, you want to do something based on that expression.
+        Otherwise if the expression is <b>falsy</b>, you will default to some
+        other code that comes after the <code class="code-inline">:</code> .
+      </p>
 
-			<p>
-				In the above example, our expression is
-				<code class="code-inline">accumulator &gt; currentAge</code>, the code
-				we want to run if that is <b>truthy</b> is
-				<code class="code-inline">accumulator</code>, and the code we want to
-				run otherwise is <code class="code-inline">currentAge</code>. Notice
-				that we are using this <b>ternary operator</b> statement <b>after</b> a
-				<code class="code-inline">return</code> keyword. That means that if our
-				expression
-				<code class="code-inline">accumulator &gt; currentAge</code> is
-				<b>truthy</b>, we will be returning
-				<code class="code-inline">accumulator</code>. If it is <b>falsy</b> we
-				will return <code class="code-inline">currentAge</code>. While we could
-				use <code class="code-inline">Math.max()</code> to get the higher number
-				between two numbers, I think it more clearly demonstrates what we are
-				checking within <code class="code-inline">reduce()</code>. Every
-				iteration, we are checking whether or not the previous largest value
-				(our <code class="code-inline">accumulator</code>) is greater than the
-				<code class="code-inline">currentAge</code> that we are comparing. If it
-				is, we return the <code class="code-inline">accumulator</code> as we
-				want to continue to remember the <b>greatest</b> value. If
-				<code class="code-inline">currentAge</code> is greater, we return
-				<code class="code-inline">currentAge</code>, which is what
-				<code class="code-inline">reduce()</code> will set the
-				<code class="code-inline">accumulator</code> of the next iteration equal
-				to.
-			</p>
+      <p>
+        In the above example, our expression is
+        <code class="code-inline">accumulator &gt; currentAge</code>, the code
+        we want to run if that is <b>truthy</b> is
+        <code class="code-inline">accumulator</code>, and the code we want to
+        run otherwise is <code class="code-inline">currentAge</code>. Notice
+        that we are using this <b>ternary operator</b> statement <b>after</b> a
+        <code class="code-inline">return</code> keyword. That means that if our
+        expression
+        <code class="code-inline">accumulator &gt; currentAge</code> is
+        <b>truthy</b>, we will be returning
+        <code class="code-inline">accumulator</code>. If it is <b>falsy</b> we
+        will return <code class="code-inline">currentAge</code>. While we could
+        use <code class="code-inline">Math.max()</code> to get the higher number
+        between two numbers, I think it more clearly demonstrates what we are
+        checking within <code class="code-inline">reduce()</code>. Every
+        iteration, we are checking whether or not the previous largest value
+        (our <code class="code-inline">accumulator</code>) is greater than the
+        <code class="code-inline">currentAge</code> that we are comparing. If it
+        is, we return the <code class="code-inline">accumulator</code> as we
+        want to continue to remember the <b>greatest</b> value. If
+        <code class="code-inline">currentAge</code> is greater, we return
+        <code class="code-inline">currentAge</code>, which is what
+        <code class="code-inline">reduce()</code> will set the
+        <code class="code-inline">accumulator</code> of the next iteration equal
+        to.
+      </p>
 
-			<p>
-				Note that in this example, our reduce() function will run
-				<b>5 times</b>, since we provide it an
-				<code class="code-inline">initialValue</code> of 0. “But Ben!" you might
-				say, “this returns 67 just like the first snippet we looked at! Why
-				would we provide an initialValue and make
-				<code class="code-inline">reduce()</code> run an extra time?” And that
-				would be a great observation! Let’s look at another example where we can
-				see why explicitly setting an
-				<code class="code-inline">initialValue</code> might be useful to us!
-			</p>
+      <p>
+        Note that in this example, our reduce() function will run
+        <b>5 times</b>, since we provide it an
+        <code class="code-inline">initialValue</code> of 0. “But Ben!" you might
+        say, “this returns 67 just like the first snippet we looked at! Why
+        would we provide an initialValue and make
+        <code class="code-inline">reduce()</code> run an extra time?” And that
+        would be a great observation! Let’s look at another example where we can
+        see why explicitly setting an
+        <code class="code-inline">initialValue</code> might be useful to us!
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-four"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-four">
               const people = [
                 { firstName: "Ben", lastName: "Smith", age: 21 },
                 { firstName: "John", lastName: "Michaelson", age: 43 },
@@ -293,44 +293,44 @@
               console.log(maxAge); // 67
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				In the above snippet, we have an array of objects that contain each
-				person’s <code class="code-inline">firstName</code>,
-				<code class="code-inline">lastName</code>, and
-				<code class="code-inline">age</code>. If you want to find out who is the
-				oldest person in this array of <code class="code-inline">people</code>,
-				<code class="code-inline">reduce()</code> makes it easy! We simply check
-				in the callback that we provide to
-				<code class="code-inline">reduce()</code> whether or not the
-				<code class="code-inline">accumulator</code> is <b>greater than</b> the
-				age of the current <code class="code-inline">person</code> that we are
-				comparing. If it is, return the
-				<code class="code-inline">accumulator</code>. If it’s not, return the
-				age of the current <code class="code-inline">person</code>. Here is the
-				value of <code class="code-inline">accumulator</code> and
-				<code class="code-inline">person</code> for each iteration of
-				<code class="code-inline">reduce()</code> from the above example:
-			</p>
+      <p>
+        In the above snippet, we have an array of objects that contain each
+        person’s <code class="code-inline">firstName</code>,
+        <code class="code-inline">lastName</code>, and
+        <code class="code-inline">age</code>. If you want to find out who is the
+        oldest person in this array of <code class="code-inline">people</code>,
+        <code class="code-inline">reduce()</code> makes it easy! We simply check
+        in the callback that we provide to
+        <code class="code-inline">reduce()</code> whether or not the
+        <code class="code-inline">accumulator</code> is <b>greater than</b> the
+        age of the current <code class="code-inline">person</code> that we are
+        comparing. If it is, return the
+        <code class="code-inline">accumulator</code>. If it’s not, return the
+        age of the current <code class="code-inline">person</code>. Here is the
+        value of <code class="code-inline">accumulator</code> and
+        <code class="code-inline">person</code> for each iteration of
+        <code class="code-inline">reduce()</code> from the above example:
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-five"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-five">
               accumulator: 0, person: { firstName: 'Ben', lastName: 'Smith', age: 21 }
               accumulator: 21, person: { firstName: 'John', lastName: 'Michaelson', age: 43 }
               accumulator: 43, person: { firstName: 'Wes', lastName: 'Tomkins', age: 32 }
@@ -338,34 +338,34 @@
               accumulator: 67, person: { firstName: 'Katelyn', lastName: 'Roberts', age: 27 }
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				Did you notice that we set an
-				<code class="code-inline">initialValue</code> for our
-				<code class="code-inline">accumulator</code> to <b>0</b>? Why did we do
-				that? Well let’s see what happens if we use the same
-				<code class="code-inline">people</code> array and <b>don't</b> include
-				an initial value. Here’s the code and the result:
-			</p>
+      <p>
+        Did you notice that we set an
+        <code class="code-inline">initialValue</code> for our
+        <code class="code-inline">accumulator</code> to <b>0</b>? Why did we do
+        that? Well let’s see what happens if we use the same
+        <code class="code-inline">people</code> array and <b>don't</b> include
+        an initial value. Here’s the code and the result:
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-six"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-six">
               // We aren’t providing an initialValue this time! 
               const maxAge = people.reduce((accumulator, person) => {
               	return accumulator > person.age ? accumulator : person.age;
@@ -373,61 +373,61 @@
               console.log(maxAge); // 67
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				It returns the same value? Did you spot the bug in this code? Even I
-				missed it at first, but when I played around with this example some more
-				to understand why it returned 67, the answer was clear. This code does
-				not run the way we are wanting it to, even though it does run correctly.
-				On the first iteration, our
-				<code class="code-inline">accumulator</code> is set equal to the first
-				value in <code class="code-inline">people</code> since we don’t provide
-				an <code class="code-inline">initalValue</code>. That means that for our
-				first iteration, we are asking Javascript to tell us if
-				<code class="code-inline"
-					>{ firstName: “Ben”, lastName: “Smith”, age: 21 } &gt; 21</code
-				>. Well clearly we can’t compare an object with an integer, right?
-				Unlike many other programming languages, Javascript is a bit weird when
-				it comes to what it considers to be <b>true</b> and <b>false</b>.
-				Instead of throwing an error at us when we try to compare an object to
-				an integer (like many other languages would), Javascript evaluates the
-				statement
-				<code class="code-inline"
-					>{ firstName: “Ben”, lastName: “Smith”, age: 21 } &gt; 21</code
-				>
-				as <b>false</b>. So our first iteration returns <b>43</b> because when
-				that expression evaluates to <b>false</b>, we return
-				<code class="code-inline">person.age</code>, which is <b>43</b>. So our
-				code actually continues to execute the same from here on out as when we
-				gave <code class="code-inline">reduce()</code> an
-				<code class="code-inline">initialValue</code>.
-			</p>
+      <p>
+        It returns the same value? Did you spot the bug in this code? Even I
+        missed it at first, but when I played around with this example some more
+        to understand why it returned 67, the answer was clear. This code does
+        not run the way we are wanting it to, even though it does run correctly.
+        On the first iteration, our
+        <code class="code-inline">accumulator</code> is set equal to the first
+        value in <code class="code-inline">people</code> since we don’t provide
+        an <code class="code-inline">initalValue</code>. That means that for our
+        first iteration, we are asking Javascript to tell us if
+        <code class="code-inline"
+          >{ firstName: “Ben”, lastName: “Smith”, age: 21 } &gt; 21</code
+        >. Well clearly we can’t compare an object with an integer, right?
+        Unlike many other programming languages, Javascript is a bit weird when
+        it comes to what it considers to be <b>true</b> and <b>false</b>.
+        Instead of throwing an error at us when we try to compare an object to
+        an integer (like many other languages would), Javascript evaluates the
+        statement
+        <code class="code-inline"
+          >{ firstName: “Ben”, lastName: “Smith”, age: 21 } &gt; 21</code
+        >
+        as <b>false</b>. So our first iteration returns <b>43</b> because when
+        that expression evaluates to <b>false</b>, we return
+        <code class="code-inline">person.age</code>, which is <b>43</b>. So our
+        code actually continues to execute the same from here on out as when we
+        gave <code class="code-inline">reduce()</code> an
+        <code class="code-inline">initialValue</code>.
+      </p>
 
-			<p>
-				What if we were to <b>rearrange</b> the objects in our array? Let’s move
-				the fourth item in our array to the <b>beginning</b> of our array, and
-				re-run the same code (without an
-				<code class="code-inline">initialValue</code>) and see what happens:
-			</p>
+      <p>
+        What if we were to <b>rearrange</b> the objects in our array? Let’s move
+        the fourth item in our array to the <b>beginning</b> of our array, and
+        re-run the same code (without an
+        <code class="code-inline">initialValue</code>) and see what happens:
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-          <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-seven"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+          <code class="language-js snippet-seven">
             const people = [
               { firstName: "Julie", lastName: "Donaldson", age: 67 },
               { firstName: "Ben", lastName: "Smith", age: 21 },
@@ -442,51 +442,51 @@
             console.log(maxAge); // 43
           </code>
         </pre>
-			</div>
+      </div>
 
-			<p>
-				This returns <b>43</b>? Now we can start to truly see the problem with
-				not passing an <code class="code-inline">initialValue</code>! If we
-				didn’t know what this data looked like (for instance if we were pulling
-				data from a database and trying to get the highest age without ever
-				seeing the data ourselves) and we tried to run this, we might not ever
-				notice the issue with this code. But clearly <b>43</b> is <b>not</b> the
-				highest age. You and I can both see that clearly! The issue is because
-				our <code class="code-inline">accumulator</code> is equal to the first
-				item in the array by default, and that item <b>happens</b> to have our
-				highest age! In our first iteration, Javascript checks the expression
-				<code class="code-inline"
-					>{ firstName: “Julie”, lastName: “Donaldson”, age: 67 } &gt; 21</code
-				>, which it evaluates to <b>false</b>. That means that
-				<code class="code-inline">person.age</code>, or <b>21</b> is passed to
-				the next iteration as our accumulator <b>instead</b> of 67 which is our
-				actual highest age!
-			</p>
+      <p>
+        This returns <b>43</b>? Now we can start to truly see the problem with
+        not passing an <code class="code-inline">initialValue</code>! If we
+        didn’t know what this data looked like (for instance if we were pulling
+        data from a database and trying to get the highest age without ever
+        seeing the data ourselves) and we tried to run this, we might not ever
+        notice the issue with this code. But clearly <b>43</b> is <b>not</b> the
+        highest age. You and I can both see that clearly! The issue is because
+        our <code class="code-inline">accumulator</code> is equal to the first
+        item in the array by default, and that item <b>happens</b> to have our
+        highest age! In our first iteration, Javascript checks the expression
+        <code class="code-inline"
+          >{ firstName: “Julie”, lastName: “Donaldson”, age: 67 } &gt; 21</code
+        >, which it evaluates to <b>false</b>. That means that
+        <code class="code-inline">person.age</code>, or <b>21</b> is passed to
+        the next iteration as our accumulator <b>instead</b> of 67 which is our
+        actual highest age!
+      </p>
 
-			<p>
-				This is why passing an <code class="code-inline">initialValue</code> is
-				so useful in certain circumstances. We can set an
-				<code class="code-inline">initialValue</code> of 0 to our
-				<code class="code-inline">accumulator</code> so that on its first
-				iteration, no matter what order our
-				<code class="code-inline">people</code> data is in, it will always be
-				comparing <b>integers</b> in our expression. In the first iteration with
-				our <code class="code-inline">initialValue</code> of 0, it would check
-				if <code class="code-inline">0 &gt; 21</code>, and we know that for you
-				to be alive you have to be more than 0 years old.
-			</p>
+      <p>
+        This is why passing an <code class="code-inline">initialValue</code> is
+        so useful in certain circumstances. We can set an
+        <code class="code-inline">initialValue</code> of 0 to our
+        <code class="code-inline">accumulator</code> so that on its first
+        iteration, no matter what order our
+        <code class="code-inline">people</code> data is in, it will always be
+        comparing <b>integers</b> in our expression. In the first iteration with
+        our <code class="code-inline">initialValue</code> of 0, it would check
+        if <code class="code-inline">0 &gt; 21</code>, and we know that for you
+        to be alive you have to be more than 0 years old.
+      </p>
 
-			<p>
-				I hope this introduction to
-				<code class="code-inline">reduce()</code> was helpful to you! There are
-				many more use cases and more complex things that you can do with it, so
-				I encourage you to go out and experiment!
-			</p>
-		</main>
+      <p>
+        I hope this introduction to
+        <code class="code-inline">reduce()</code> was helpful to you! There are
+        many more use cases and more complex things that you can do with it, so
+        I encourage you to go out and experiment!
+      </p>
+    </main>
 
-		<footer-bar></footer-bar>
+    <footer-bar></footer-bar>
 
-		<script src="../js/components.js"></script>
-		<script src="../js/methods.js"></script>
-	</body>
+    <script src="../js/components.js"></script>
+    <script src="../js/methods.js"></script>
+  </body>
 </html>

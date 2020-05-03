@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="../assets/js.ico" type="image/x-icon" />
-		<title>Filter - Array Methods</title>
-		<link rel="stylesheet" href="../css/preflight.css" />
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/prism-synthwave84.css" />
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/js.ico" type="image/x-icon" />
+    <title>Filter - Array Methods</title>
+    <link rel="stylesheet" href="../css/preflight.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/prism-synthwave84.css" />
+  </head>
 
-	<body>
-		<header>
-			<banner-logo></banner-logo>
-			<nav-menu></nav-menu>
-		</header>
+  <body>
+    <header>
+      <banner-logo></banner-logo>
+      <nav-menu></nav-menu>
+    </header>
 
-		<main>
-			<h2>What is filter()?</h2>
+    <main>
+      <h2>What is filter()?</h2>
 
-			<p>
-				As per the
-				<a
-					class="inline-link"
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
-					>Mozilla Developer Network (MDN)</a
-				>
-				web documentation, "The <code class="code-inline">filter()</code> method
-				<b>creates a new array</b> with all elements that pass the test
-				implemented by the provided function.” Like
-				<code class="code-inline">map()</code>,
-				<code class="code-inline">filter()</code> allows you to take an array
-				and return a new array, without manipulating the original array that you
-				call <code class="code-inline">filter()</code> on. Also like
-				<code class="code-inline">map()</code>,
-				<code class="code-inline">filter()</code> takes in a callback function
-				as an argument, which only has one required parameter:
-				<code class="code-inline">element</code>. The
-				<code class="code-inline">element</code> will be equal to the element
-				that we are currently iterating over within
-				<code class="code-inline">filter()</code>. There are several other
-				optional parameters (such as index, which is quite useful) that are not
-				within the scope of this post, but you can read about on the
-				<a
-					class="inline-link"
-					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
-					>Mozilla Developer Network (MDN)</a
-				>
-				web documentation. Let’s jump into some examples!
-			</p>
+      <p>
+        As per the
+        <a
+          class="inline-link"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
+          >Mozilla Developer Network (MDN)</a
+        >
+        web documentation, "The <code class="code-inline">filter()</code> method
+        <b>creates a new array</b> with all elements that pass the test
+        implemented by the provided function.” Like
+        <code class="code-inline">map()</code>,
+        <code class="code-inline">filter()</code> allows you to take an array
+        and return a new array, without manipulating the original array that you
+        call <code class="code-inline">filter()</code> on. Also like
+        <code class="code-inline">map()</code>,
+        <code class="code-inline">filter()</code> takes in a callback function
+        as an argument, which only has one required parameter:
+        <code class="code-inline">element</code>. The
+        <code class="code-inline">element</code> will be equal to the element
+        that we are currently iterating over within
+        <code class="code-inline">filter()</code>. There are several other
+        optional parameters (such as index, which is quite useful) that are not
+        within the scope of this post, but you can read about on the
+        <a
+          class="inline-link"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
+          >Mozilla Developer Network (MDN)</a
+        >
+        web documentation. Let’s jump into some examples!
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-one"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
             <code class="language-js snippet-one">
               const names = [
                 "Ben Smith",
@@ -79,44 +79,44 @@
               // returns [“John Michaelson”, “Julie Donaldson”];
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				In the above example, we have an array called
-				<code class="code-inline">names</code>. However, we want a new array
-				that only contains names that start with the letter “J”.
-				<code class="code-inline">filter()</code> makes this a trivial task! We
-				simply pass <code class="code-inline">name</code> to our callback
-				function, and in our callback we return whether or not the first
-				character in <code class="code-inline">name</code> is equal to “J”. If
-				our callback function returns <b>true</b>, then
-				<code class="code-inline">filter()</code> adds that item (in this case
-				<code class="code-inline">name</code>) to a new array and moves onto the
-				next iteration. If our callback returns <b>false</b>, then
-				<code class="code-inline">filter()</code> ignores that item and moves
-				onto the next iteration. Finally, after
-				<code class="code-inline">filter()</code> has iterated through our
-				entire array, it returns a new array with our names that start with “J”.
-				Easy enough!
-			</p>
+      <p>
+        In the above example, we have an array called
+        <code class="code-inline">names</code>. However, we want a new array
+        that only contains names that start with the letter “J”.
+        <code class="code-inline">filter()</code> makes this a trivial task! We
+        simply pass <code class="code-inline">name</code> to our callback
+        function, and in our callback we return whether or not the first
+        character in <code class="code-inline">name</code> is equal to “J”. If
+        our callback function returns <b>true</b>, then
+        <code class="code-inline">filter()</code> adds that item (in this case
+        <code class="code-inline">name</code>) to a new array and moves onto the
+        next iteration. If our callback returns <b>false</b>, then
+        <code class="code-inline">filter()</code> ignores that item and moves
+        onto the next iteration. Finally, after
+        <code class="code-inline">filter()</code> has iterated through our
+        entire array, it returns a new array with our names that start with “J”.
+        Easy enough!
+      </p>
 
-			<div class="snippet">
-				<button
-					class="snippet-copy"
-					aria-label="Copy Snippet to Clipboard"
-					data-clipboard-target=".snippet-one"
-				>
-					<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-						/>
-					</svg>
-				</button>
-				<pre>
-            <code class="language-js snippet-one">
+      <div class="snippet">
+        <button
+          class="snippet-copy"
+          aria-label="Copy Snippet to Clipboard"
+          data-clipboard-target=".snippet-two"
+        >
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+        <pre>
+            <code class="language-js snippet-two">
               const people = [
                 { firstName: "Ben", lastName: "Smith", age: 21 },
                 { firstName: "John", lastName: "Michaelson", age: 43 },
@@ -134,44 +134,44 @@
               */
             </code>
           </pre>
-			</div>
+      </div>
 
-			<p>
-				What if we wanted to get all of the people in an array of people objects
-				that have an age property that is less than thirty?
-				<code class="code-inline">filter()</code> also make this extremely easy!
-				In the above example, we call
-				<code class="code-inline">filter()</code> on our
-				<code class="code-inline">people</code> array, and pass
-				<code class="code-inline">person</code> as our only argument to the
-				callback that we provide to <code class="code-inline">filter()</code>.
-				In our callback we return whether that person’s age (in this case,
-				<code class="code-inline">person.age</code> property) is less than 30.
-				If it is, <code class="code-inline">filter()</code> adds that object to
-				a new array and keeps on iterating. If that person’s age is 30 or older,
-				<code class="code-inline">filter()</code> ignores that object and keeps
-				on iterating. Finally,
-				<code class="code-inline">filter()</code> finishes iterating through our
-				<code class="code-inline">people</code> array and returns a new array to
-				<code class="code-inline">underThirty</code> that contains only the
-				objects that have an <code class="code-inline">age</code> property that
-				is less than 30.
-			</p>
+      <p>
+        What if we wanted to get all of the people in an array of people objects
+        that have an age property that is less than thirty?
+        <code class="code-inline">filter()</code> also make this extremely easy!
+        In the above example, we call
+        <code class="code-inline">filter()</code> on our
+        <code class="code-inline">people</code> array, and pass
+        <code class="code-inline">person</code> as our only argument to the
+        callback that we provide to <code class="code-inline">filter()</code>.
+        In our callback we return whether that person’s age (in this case,
+        <code class="code-inline">person.age</code> property) is less than 30.
+        If it is, <code class="code-inline">filter()</code> adds that object to
+        a new array and keeps on iterating. If that person’s age is 30 or older,
+        <code class="code-inline">filter()</code> ignores that object and keeps
+        on iterating. Finally,
+        <code class="code-inline">filter()</code> finishes iterating through our
+        <code class="code-inline">people</code> array and returns a new array to
+        <code class="code-inline">underThirty</code> that contains only the
+        objects that have an <code class="code-inline">age</code> property that
+        is less than 30.
+      </p>
 
-			<p>
-				I hope this introduction to
-				<code class="code-inline">filter()</code> was helpful to you!
-				<code class="code-inline">filter()</code> is a very simple way of
-				narrowing down pre-existing data without ever manipulating the original
-				array of data. I encourage you to experiment with it and find new ways
-				to integrate <code class="code-inline">filter()</code> into your
-				projects!
-			</p>
-		</main>
+      <p>
+        I hope this introduction to
+        <code class="code-inline">filter()</code> was helpful to you!
+        <code class="code-inline">filter()</code> is a very simple way of
+        narrowing down pre-existing data without ever manipulating the original
+        array of data. I encourage you to experiment with it and find new ways
+        to integrate <code class="code-inline">filter()</code> into your
+        projects!
+      </p>
+    </main>
 
-		<footer-bar></footer-bar>
+    <footer-bar></footer-bar>
 
-		<script src="../js/components.js"></script>
-		<script src="../js/methods.js"></script>
-	</body>
+    <script src="../js/components.js"></script>
+    <script src="../js/methods.js"></script>
+  </body>
 </html>
