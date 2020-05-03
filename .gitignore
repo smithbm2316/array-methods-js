@@ -3,3 +3,5 @@
 /dist
 .DS_Store
 CNAME
+# Local Netlify folder
+.netlify
