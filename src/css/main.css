@@ -323,6 +323,10 @@ main > div {
   display: none;
 }
 
+.landing-tagline {
+  margin: 0;
+}
+
 /*
 
 
@@ -455,6 +459,10 @@ main > div {
 
   main h2 {
     font-size: 2.5rem;
+  }
+
+  .landing-tagline {
+    padding: 0.5rem 0;
   }
 }
 

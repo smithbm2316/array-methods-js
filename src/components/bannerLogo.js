@@ -13,6 +13,7 @@ export class BannerLogo extends LitElement {
         justify-content: center;
         font-family: "Streamster";
         position: relative;
+        width: 100%;
       }
 
       .logo a {
@@ -47,11 +48,8 @@ export class BannerLogo extends LitElement {
       .logo p {
         color: var(--logo-brackets);
         font-size: 8rem;
-        margin: 0;
-        padding: 0;
         pointer-events: none;
         position: absolute;
-        top: 0;
         z-index: 0;
       }
 
@@ -75,13 +73,16 @@ export class BannerLogo extends LitElement {
         }
       }
 
+      @media (max-width: 480px) {
+        .logo p {
+          display: none;
+          pointer-events: none;
+        }
+      }
+
       @media (max-width: 420px) {
         .logo h1 {
           font-size: 2.5rem;
-        }
-
-        .logo p {
-          font-size: 3rem;
         }
       }
 
