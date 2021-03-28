@@ -11,7 +11,7 @@ export class BannerLogo extends LitElement {
       .logo {
         display: flex;
         justify-content: center;
-        font-family: "Streamster";
+        font-family: "Airstream", system-ui, -apple-system, sans-serif;
         position: relative;
         width: 100%;
       }

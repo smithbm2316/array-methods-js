@@ -7,18 +7,20 @@
 */
 
 @font-face {
-  font-family: "Streamster";
-  src: url("../assets/streamster.ttf");
+  font-family: "Airstream";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../assets/Airstream-webfont.woff") format("woff");
 }
 
 @font-face {
-  font-family: "Eurostile";
-  src: url("../assets/eurostile.TTF");
+  font-family: "Orbitron Medium";
+  src: url("../assets/orbitron-medium-webfont.woff") format("woff");
 }
 
 @font-face {
-  font-family: "Gilles Gothic";
-  src: url("../assets/gilles-gothic.ttf");
+  font-family: "Orbitron Bold";
+  src: url("../assets/orbitron-bold-webfont.woff") format("woff");
 }
 
 @font-face {
@@ -173,10 +175,9 @@ html {
 
   background: var(--bg);
   color: var(--text);
-  font-family: "Eurostile", --apple-system, Helvetica, Arial, sans-serif;
+  font-family: "Orbitron Medium", --apple-system, Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
-  letter-spacing: 0.05rem;
 }
 
 header {
@@ -200,8 +201,8 @@ main {
 
 main h2 {
   color: var(--heading-text);
-  font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
-  font-size: 3rem;
+  font-family: "Airstream", -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
   font-weight: normal;
   margin: 2rem 0;
   text-shadow: var(--heading-shadow);
@@ -209,6 +210,7 @@ main h2 {
 
 main > p,
 main > div {
+  line-height: 1.8;
   margin: 2rem 0;
 }
 
@@ -272,8 +274,8 @@ main > div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  font-family: "Gilles Gothic", -apple-system, Helvetica, Arial, sans-serif;
-  font-size: 2rem;
+  font-family: "Orbitron Bold", -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
   position: absolute;
   top: 20px;
   width: 100%;
@@ -340,9 +342,10 @@ main > div {
   border-radius: 0.2rem;
   box-shadow: var(--inline-snippet-shadow);
   color: var(--inline-snippet-text);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Orbitron Medium", sans-serif;
   font-weight: 400;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
   padding: 0.15rem 0.4rem;
 }
 
@@ -454,11 +457,11 @@ main > div {
   }
 
   .landing-nav {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   main h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .landing-tagline {
@@ -474,7 +477,7 @@ main > div {
   }
 
   .landing-nav {
-    font-size: 1.5rem;
+    font-size: 1rem;
     justify-content: space-between;
     padding: 0 0.75rem;
   }
@@ -484,7 +487,7 @@ main > div {
   }
 
   main h2 {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
   }
 
   main p {

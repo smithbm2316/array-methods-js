@@ -7,9 +7,9 @@ export class NavMenu extends LitElement {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        font-family: "Gilles Gothic", --apple-system, Helvetica, Arial,
+        font-family: "Orbitron Bold", --apple-system, Helvetica, Arial,
           sans-serif;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 0 auto;
         width: 80%;
       }
@@ -74,7 +74,9 @@ export class NavMenu extends LitElement {
       }
 
       @media (max-width: 600px) {
-        nav a,
+        nav a {
+          font-size: 1.25rem;
+        }
         .toggle-theme {
           font-size: 1.75rem;
         }
@@ -83,12 +85,13 @@ export class NavMenu extends LitElement {
       @media (max-width: 420px) {
         nav {
           justify-content: space-between;
+          align-items: center;
           width: 100%;
         }
 
         nav a,
         .toggle-theme {
-          font-size: 1.75rem;
+          font-size: 1rem;
         }
       }
     `;
