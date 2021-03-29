@@ -2,10 +2,9 @@
   "name": "array-methods-js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel serve src/index.html src/methods/*.html",
-    "build": "parcel build src/index.html src/methods/*.html"
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
