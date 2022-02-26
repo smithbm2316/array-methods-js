@@ -18,7 +18,7 @@
     "clipboard": "^2.0.6",
     "lit-element": "^2.3.1",
     "lit-html": "^1.2.1",
-    "prismjs": "^1.25.0"
+    "prismjs": "^1.27.0"
   },
   "browserslist": "> 0.2%"
 }
